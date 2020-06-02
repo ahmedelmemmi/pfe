@@ -3,18 +3,17 @@
 /** @type {import('@adonisjs/lucid/src/Schema')} */
 const Schema = use("Schema");
 
-class SavedInternshipsSchema extends Schema {
+class FavoriteInternshipsSchema extends Schema {
   up() {
-    this.create("saved_internships", (table) => {
+    this.create("favorite_internships", (table) => {
       table.increments();
-
       table.timestamps();
     });
   }
 
   down() {
-    this.drop("saved_internships");
+    this.drop("favorite_internships");
   }
 }
 
-module.exports = SavedInternshipsSchema;
+module.exports = FavoriteInternshipsSchema;
