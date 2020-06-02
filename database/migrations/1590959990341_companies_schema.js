@@ -7,6 +7,8 @@ class CompaniesSchema extends Schema {
   up() {
     this.create("companies", (table) => {
       table.increments();
+      table.string("company_email").notNullable().unique();
+      table.string("company_password").notNullable()
       table.string("company_name");
       table.string("company_taxcode");
       table.string("company_phone");

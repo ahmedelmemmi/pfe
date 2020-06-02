@@ -7,9 +7,11 @@ class CandidatesSchema extends Schema {
   up() {
     this.create("candidates", (table) => {
       table.increments();
-
-      table.string("candidate_name");
+      table.string("candidate_email").notNullable().unique();
+      table.string("candidate_password").notNullable()
+      table.string("candidate_name").notNullable();
       table.string("candidate_service");
+      table.string("candidate_gender").notNullable();
       table.string("candidate_nb_experience");
       table.string("candidate_adress");
       table.string("candidate_city");
