@@ -4,12 +4,12 @@
 const Model = use("Model");
 
 class FavoriteCandidate extends Model {
-  candidates() {
-    return this.belongsTo("App/Models/Candidate");
-  }
-  company() {
-    return this.belongsTo("App/Models/Company");
-  }
+   candidates() {
+     return this.belongsTo("App/Models/Candidate");
+   }
+   company() {
+     return this.belongsTo("App/Models/Company");
+   }
 }
 
 module.exports = FavoriteCandidate;

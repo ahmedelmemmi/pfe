@@ -1,5 +1,5 @@
 'use strict'
-const Candidate=use('App/model/Condidate')
+const Candidate=use('App/Models/Candidate')
 class CandidateController {
     async register({request,response}){
         const {candidate_email,candidate_password,candidate_name,candidate_service,candidate_gender,candidate_nb_experience,candidate_adress,candidate_city,candidate_phone,candidate_photo} =request.only([
@@ -14,7 +14,7 @@ class CandidateController {
             'candidate_phone',
             'candidate_photo'
         ])
-        await User.create({
+        await Candidate.create({
             candidate_email,
             candidate_password,
             candidate_name,
@@ -45,9 +45,8 @@ class CandidateController {
     //     }
     //     return response.json(res);
     // }
-    async get_all_candidates({params,response}){
-        const res = await Database.table('candidates').select('*');
-        return response.json(res);
+    async get_all_candidates(){
+        return await Database.table('candidates').select('*');
     }
 }
 

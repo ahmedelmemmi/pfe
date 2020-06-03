@@ -4,12 +4,12 @@
 const Model = use("Model");
 
 class Skill extends Model {
-  candidates() {
-    return this.belongsToMany("App/Models/Candidate");
-  }
-  internships() {
-    return this.belongsToMany("App/Models/Internship");
-  }
+   candidates() {
+     return this.belongsToMany("App/Models/Candidate");
+   }
+   internships() {
+     return this.belongsToMany("App/Models/Internship");
+   }
 }
 
 module.exports = Skill;

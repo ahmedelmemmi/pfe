@@ -4,9 +4,9 @@
 const Model = use("Model");
 
 class Experience extends Model {
-  candidate() {
-    return this.belongsTo("App/Models/Candidate");
-  }
+   candidate() {
+     return this.belongsTo("App/Models/Candidate");
+   }
 }
 
 module.exports = Experience;

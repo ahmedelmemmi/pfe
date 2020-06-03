@@ -16,4 +16,17 @@
 /** @type {typeof import('@adonisjs/framework/src/Route/Manager')} */
 const Route = use('Route')
 
-Route.on('/').render('welcome')
+ Route.group(()=>{
+     Route.post('login','CandidateController.login')
+     Route.post('register','CandidateController.register')
+     Route.get('getAllCandidates','CandidateController.get_all_candidates')
+ }).prefix('candidates')
+ Route.group(()=>{
+     Route.post('login','CompanyController.login')
+     Route.post('register','CompanyController.register')
+     Route.get('getAllCompanies','CompanyController.get_all_companies')
+ }).prefix('companies')
+ Route.group(()=>{
+    Route.post('register','InternshipController.createInternship')
+     Route.get('AllInternships','InternshipController.get_all_internships')
+ }).prefix('internships')

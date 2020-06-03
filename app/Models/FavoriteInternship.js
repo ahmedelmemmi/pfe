@@ -4,12 +4,12 @@
 const Model = use("Model");
 
 class FavoriteInternship extends Model {
-  internships() {
-    return this.belongsTo("App/Models/Internship");
-  }
-  candidate() {
-    return this.belongsTo("App/Models/Candidate");
-  }
+   internships() {
+     return this.belongsTo("App/Models/Internship");
+   }
+   candidate() {
+     return this.belongsTo("App/Models/Candidate");
+   }
 }
 
 module.exports = FavoriteInternship;

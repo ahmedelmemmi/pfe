@@ -1,5 +1,5 @@
 'use strict'
-const Company= use('App/model/Company')
+const Company= use('App/Models/Company')
 class CompanyController {
     async register({request,response}){
         const {company_email,company_password,company_name,company_taxcode,company_phone,company_adress,company_field,company_city,company_photo} =request.only([
@@ -13,7 +13,7 @@ class CompanyController {
             'company_city',
             'company_photo'
         ])
-        await User.create({
+        await Company.create({
             company_email,
             company_password,
             company_name,

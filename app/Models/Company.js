@@ -4,12 +4,12 @@
 const Model = use("Model");
 
 class Company extends Model {
-  favoriteCandidates() {
-    return this.hasMany("App/Models/FavoriteCandidate");
-  }
-  internships() {
-    return this.hasMany("App/Models/Internship");
-  }
+   favoriteCandidates() {
+     return this.hasMany("App/Models/FavoriteCandidate");
+   }
+   internships() {
+     return this.hasMany("App/Models/Internship");
+   }
 }
 
 module.exports = Company;
