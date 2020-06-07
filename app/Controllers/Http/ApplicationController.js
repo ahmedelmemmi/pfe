@@ -29,23 +29,29 @@ class ApplicationController {
       app_status: app.app_status,
       app_comments: app.app_comments,
     });
-    return response.send({ message: "omok has been created" });
+    return response.send({ message: "Application has been created" });
   }
 
   async show({ params, response }) {
-    const app = await Application.find(params.id);
-    const res = {
-      app_status: app.app_status,
-      app_comments: app.app_comments,
-    };
-    return response.json(res);
+    try {
+      const app = await Application.find(params.id);
+      const res = {
+        app_status: app.app_status,
+        app_comments: app.app_comments
+      };
+      return response.json(res);
+      
+    } catch (error) {
+      return error
+    }
+   
   }
 
   async delete({ response, session, params }) {
     const app = await Application.find(params.id);
 
     await app.delete();
-    return response.send({ message: "omok has been deleted" });
+    return response.send({ message: "Application has been deleted" });
   }
 
   async update({ response, request, session, params }) {
@@ -56,7 +62,7 @@ class ApplicationController {
 
     await app.save();
 
-    return response.send({ message: "omok has been updated" });
+    return response.send({ message: "Application has been updated" });
   }
 }
 
