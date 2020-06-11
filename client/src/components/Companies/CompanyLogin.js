@@ -1,0 +1,81 @@
+import React, { Component } from "react";
+import { CompanyLogin_f } from "./CompanyFunctions";
+import { Redirect,withRouter } from "react-router-dom";
+class CompanyLogin extends Component {
+  constructor() {
+    super();
+    this.state = {
+      errors:{},
+      company_email: "",
+      company_password: ""
+    };
+
+    this.onChange = this.onChange.bind(this);
+    this.onSubmit = this.onSubmit.bind(this);
+  }
+
+  onChange(e) {
+    this.setState({ [e.target.name]: e.target.value });
+  }
+  onSubmit(e) {
+    e.preventDefault();
+
+    const user = {
+      company_email: this.state.company_email,
+      company_password: this.state.company_password,
+    };
+
+    CompanyLogin_f(user).then((res) => {
+      if (res){
+        this.props.history.push("/company/profile");
+     }
+    });
+  }
+
+  render() {
+
+    return (
+      <div className="container">
+        <div className="row">
+          <div className="col-md-6 mt-5 mx-auto">
+            <form noValidate onSubmit={this.onSubmit}>
+              <h1 className="h3 mb-3 font-weight-normal">Please sign in</h1>
+
+              <div className="form-group">
+                <label htmlFor="company_email">company_email address</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  name="company_email"
+                  placeholder="Enter company_email"
+                  value={this.state.company_email}
+                  onChange={this.onChange}
+                />
+              </div>
+              <div className="form-group">
+                <label htmlFor="company_password">company_password</label>
+                <input
+                  type="password"
+                  className="form-control"
+                  name="company_password"
+                  placeholder="company_password"
+                  value={this.state.company_password}
+                  onChange={this.onChange}
+                />
+              </div>
+
+              <button
+                type="submit"
+                className="btn btn-lg btn-primary btn-block"
+              >
+                Sign in
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    );
+  }
+}
+
+export default withRouter(CompanyLogin);
