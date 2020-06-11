@@ -44,20 +44,26 @@ class CandidateController {
       "candidate_email",
       "candidate_password",
     ]);
-    const token = await auth.attempt(candidate_email, candidate_password);
+    const token = await auth.authenticator('candidate').attempt(candidate_email, candidate_password);
     return response.json({ token: token, email: true });
   }
-  // async show({params,response}){
-  //     const user= await Candidate.find(params.id)
-  //     const res= {
-  //         candidate_email: user.candidate_email,
-  //         email: user.email,
-  //         birthday: user.birthday,
-  //         adress: user.adress,
-  //         phone: user.phone
-  //     }
-  //     return response.json(res);
-  // }
+   async show({params,response}){
+       const user= await Candidate.find(params.id)
+       const res= {
+           candidate_email: user.candidate_email,
+           candidate_name: user.candidate_name,
+           candidate_gender: user.candidate_gender,
+
+            candidate_nb_experience: user.candidate_nb_experience,
+            candidate_service: user.candidate_service,
+            
+            candidate_adress: user.candidate_adress,
+            candidate_city: user.candidate_city,
+            candidate_phone: user.candidate_phone,
+            candidate_photo: user.candidate_photo
+       }
+       return response.json(res);
+   }
   async get_all_candidates() {
     return await Database.table("candidates").select("*");
   }

@@ -19,13 +19,15 @@ const Route = use("Route");
 Route.group(() => {
   Route.post("login", "CandidateController.login");
   Route.post("register", "CandidateController.register");
-  Route.get("getAllCandidates", "CandidateController.get_all_candidates");
-}).prefix("candidates");
+  Route.get("candidate/:id","CandidateController.show")
+  Route.get("getCandidates", "CandidateController.get_all_candidates");
+}).prefix("candidate");
 Route.group(() => {
   Route.post("login", "CompanyController.login");
   Route.post("register", "CompanyController.register");
-  Route.get("getAllCompanies", "CompanyController.get_all_companies");
-}).prefix("companies");
+  Route.get("/company/:id","CompanyController.show")
+  Route.get("getCompanies", "CompanyController.get_all_companies");
+}).prefix("company");
 Route.group(() => {
   Route.post("register", "InternshipController.createInternship");
   Route.get("AllInternships", "InternshipController.get_all_internships");

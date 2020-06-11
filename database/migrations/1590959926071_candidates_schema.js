@@ -11,7 +11,7 @@ class CandidatesSchema extends Schema {
       table.string("candidate_password").notNullable()
       table.string("candidate_name").notNullable();
       table.string("candidate_service");
-      table.string("candidate_gender").notNullable();
+      table.text("candidate_gender").notNullable();
       table.string("candidate_nb_experience");
       table.string("candidate_adress");
       table.string("candidate_city");
