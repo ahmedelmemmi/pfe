@@ -9,6 +9,16 @@ class FavoriteCandidatesSchema extends Schema {
       table.increments();
       table.boolean("invitation_status");
       table.string("invitation");
+      table
+        .integer("candidate_id")
+        .unsigned()
+        .references("id")
+        .inTable("candidates");
+      table
+        .integer("company_id")
+        .unsigned()
+        .references("id")
+        .inTable("companies");
       table.timestamps();
     });
   }

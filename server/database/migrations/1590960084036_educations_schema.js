@@ -10,6 +10,11 @@ class EducationsSchema extends Schema {
       table.string("university");
       table.string("area_study");
       table.string("degree");
+      table
+        .integer("candidate_id")
+        .unsigned()
+        .references("id")
+        .inTable("candidates");
       table.timestamps();
     });
   }

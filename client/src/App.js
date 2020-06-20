@@ -5,16 +5,14 @@ import { IndexLink } from "react-router";
 import Navbar from "./components/Navbar";
 import Landing from "./components/Home/Landing";
 
-import CandidateRegister from "./components/Candidates/CandidateRegister";
-import CandidateProfile from "./components/Candidates/CandidateProfile";
-import CandidateApplications from "./components/Candidates/CandidateApplications";
-import CandidateApplication from "./components/Candidates/CandidateApplication";
+import CandidateRegister from "./components/Candidate/CandidateRegister";
+import CandidateProfile from "./components/Candidate/CandidateProfile";
+import CandidateApplications from "./components/Candidate/CandidateApplications";
+import CandidateApplication from "./components/Candidate/CandidateApplication";
+import InternshipsPage from "./components/Candidate/InternshipsPage";
 
-import CompanyRegister from "./components/Companies/CompanyRegister";
-import CompanyProfile from "./components/Companies/CompanyProfile";
-
-
-// import CandidateApplications from "./CandidateApplications ";
+import CompanyRegister from "./components/Company/CompanyRegister";
+import CompanyProfile from "./components/Company/CompanyProfile";
 
 class App extends Component {
   render() {
@@ -25,10 +23,18 @@ class App extends Component {
           <Route path="/" component={Landing} exact />
           <Route path="/candidate/register" component={CandidateRegister} />
           <Route path="/candidate/profile" component={CandidateProfile} />
-          <Route path="/applications" component={CandidateApplications} />
-          <Route path="/application/:id" component={CandidateApplication} />
-
-        
+          <Route
+            path="/candidate/applications"
+            component={CandidateApplications}
+          />
+          <Route
+            path="/candidate/application/:id"
+            component={CandidateApplication}
+          />
+          <Route
+            path="/candidate/internshipsPage"
+            component={InternshipsPage}
+          />
           <Route path="/company/register" component={CompanyRegister} />
           <Route path="/company/profile" component={CompanyProfile} />
         </Switch>

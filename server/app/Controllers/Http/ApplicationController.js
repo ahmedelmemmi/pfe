@@ -1,6 +1,8 @@
 "use strict";
 const Application = use("App/Models/Application");
 const Candidate = use("App/Models/Candidate");
+const Internship = use("App/Models/Internship");
+
 class ApplicationController {
   async all({ response }) {
     const apps = await Application.all();
@@ -9,25 +11,64 @@ class ApplicationController {
       data: apps,
     });
   }
-
-  async create({ request, response, session, auth }) {
-    const app = request.all();
-    const cand = await Candidate.find(1);
-    console.log(cand);
-    const posted = await Application.create({
-      app_status: app.app_status,
-      app_comments: app.app_comments,
+  async ofCandidate({ response, auth }) {
+    const aa = await auth.getUser();
+    const ide = aa.id;
+    const apps = await Application.query()
+      .where("candidate_id", "=", ide)
+      .with("internship.company")
+      .fetch();
+    response.status(200).json({
+      message: "asbaa",
+      data: apps,
     });
-    return response.send({ message: "omok has been created" });
+
+    // const apps = await auth.candidate.applications().all();
+  }
+
+  //   async index({ auth }) {
+  //     const apps = await auth.user.applications().fetch();
+  //     console.log(apps);
+  //     jobs.toJSON();
+
+  //     response.status(200).json({
+  //       message: "aabsaa",
+  //       data: apps,
+  //     });
+  //   }
+
+  async create({ response, auth, params }) {
+    const cand = await auth.getUser();
+    const inter = await Internship.find(params.intern_id);
+
+    const posted = await Application.create({
+      app_status: "in progress",
+      app_comments: "",
+    });
+    console.log(cand);
+    await cand.applications().save(posted);
+    await inter.applications().save(posted);
+
+    return response.status(200).json({
+      message: "success",
+    });
   }
 
   async show({ params, response }) {
     const app = await Application.find(params.id);
-    const res = {
-      app_status: app.app_status,
-      app_comments: app.app_comments,
-    };
-    return response.json(res);
+    console.log(app);
+    const candidate = await app.candidate().fetch();
+    console.log(candidate);
+
+    const internship = await app.internship().fetch();
+    const company = await internship.company().fetch();
+    return response.status(200).json({
+      message: "success",
+      app: app,
+      candidate: candidate,
+      internship: internship,
+      company: company,
+    });
   }
 
   async delete({ response, session, params }) {

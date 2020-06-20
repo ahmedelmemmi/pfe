@@ -12,9 +12,9 @@ class Navbar extends Component {
     const candidateLinks = (
       <ul className="navbar-nav">
         <li>
-        <NavLink to="/candidate/profile" className="nav-link">
-              User
-            </NavLink>
+          <NavLink to="/candidate/profile" className="nav-link">
+            User
+          </NavLink>
         </li>
         <li className="nav-item">
           <NavLink
@@ -36,7 +36,7 @@ class Navbar extends Component {
         </li>
         <li className="nav-item">
           <NavLink
-            to="/candidate/internships"
+            to="/candidate/internshipsPage"
             activeClassName="is-active"
             exact
           >
@@ -49,15 +49,20 @@ class Navbar extends Component {
     const companyLinks = (
       <ul className="navbar-nav">
         <li className="nav-item">
+          <NavLink to="/company/candidates" className="nav-link">
+            My Candidates
+          </NavLink>
+        </li>
+        <li className="nav-item">
           <NavLink to="/company/internships" className="nav-link">
             My internships
           </NavLink>
         </li>
         <li>
-        <NavLink to="/company/profile" className="nav-link">
-              User
-            </NavLink>
-            </li>
+          <NavLink to="/company/profile" className="nav-link">
+            User
+          </NavLink>
+        </li>
       </ul>
     );
     const loginRegLink = (
@@ -85,7 +90,6 @@ class Navbar extends Component {
             </a>
           </li>
         </ul>
-        
       </div>
     );
     // const companyLink = (
