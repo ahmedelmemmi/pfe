@@ -7,6 +7,16 @@ class FavoriteInternshipsSchema extends Schema {
   up() {
     this.create("favorite_internships", (table) => {
       table.increments();
+      table
+        .integer("candidate_id")
+        .unsigned()
+        .references("id")
+        .inTable("candidates");
+      table
+        .integer("internship_id")
+        .unsigned()
+        .references("id")
+        .inTable("internships");
       table.timestamps();
     });
   }

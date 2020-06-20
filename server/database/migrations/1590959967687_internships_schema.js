@@ -15,6 +15,11 @@ class InternshipsSchema extends Schema {
       table.string("internship_level");
       table.date("internship_begin_date");
       table.date("internship_end_date");
+      table
+        .integer("company_id")
+        .unsigned()
+        .references("id")
+        .inTable("companies");
       table.timestamps();
     });
   }

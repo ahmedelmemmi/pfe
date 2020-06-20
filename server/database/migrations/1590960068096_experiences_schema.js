@@ -12,6 +12,11 @@ class ExperiencesSchema extends Schema {
       table.string("ex_title");
       table.date("ex_begin_date");
       table.date("ex_end_date");
+      table
+        .integer("candidate_id")
+        .unsigned()
+        .references("id")
+        .inTable("candidates");
       table.timestamps();
     });
   }

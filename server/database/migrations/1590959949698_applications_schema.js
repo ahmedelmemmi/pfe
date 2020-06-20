@@ -14,7 +14,11 @@ class ApplicationsSchema extends Schema {
         .unsigned()
         .references("id")
         .inTable("candidates");
-
+      table
+        .integer("internship_id")
+        .unsigned()
+        .references("id")
+        .inTable("internships");
       table.timestamps();
     });
   }
