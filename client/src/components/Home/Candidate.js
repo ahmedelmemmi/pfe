@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from "react-router-dom";
 
 const Candidate = ()=>(
     <div className="flex-container">
@@ -11,7 +12,10 @@ const Candidate = ()=>(
             
             <h5>Tired of looking for companies to pass your internship with ?</h5>
             <h5> We are here for you, you can start applying for opportunities Now </h5>
-            <button id="apply_btn">Apply</button>
+            <button id="apply_btn">
+            <NavLink to="/candidate/register">
+                Apply
+                </NavLink> </button>
         </div>
     </div>
 )

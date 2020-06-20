@@ -1,11 +1,7 @@
 import React, { Component } from "react";
 import { CompanyRegister_f } from "./CompanyFunctions";
-import { Link, withRouter } from "react-router-dom";
 import { CompanyLogin_f } from "./CompanyFunctions";
-
 import { Redirect } from "react-router-dom";
-
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 class CompanyRegistration extends Component {
   constructor() {

@@ -75,7 +75,7 @@ class CandidateRegistration extends Component {
                   type="text"
                   className="form-control"
                   name="candidate_name"
-                  placeholder="Enter your first name"
+                  placeholder="Enter your full name"
                   value={this.state.candidate_name}
                   onChange={this.onChange}
                 />
@@ -87,7 +87,7 @@ class CandidateRegistration extends Component {
                   type="email"
                   className="form-control"
                   name="candidate_email"
-                  placeholder="Enter candidate_email"
+                  placeholder="Enter your email"
                   value={this.state.candidate_email}
                   onChange={this.onChange}
                 />
@@ -98,7 +98,7 @@ class CandidateRegistration extends Component {
                   type="password"
                   className="form-control"
                   name="candidate_password"
-                  placeholder="candidate_password"
+                  placeholder="set your password"
                   value={this.state.candidate_password}
                   onChange={this.onChange}
                 />
@@ -109,7 +109,6 @@ class CandidateRegistration extends Component {
                   type="text"
                   className="form-control"
                   name="candidate_service"
-                  placeholder="Enter your first name"
                   value={this.state.candidate_service}
                   onChange={this.onChange}
                 />
@@ -131,7 +130,7 @@ class CandidateRegistration extends Component {
                   type="text"
                   className="form-control"
                   name="candidate_nb_experience"
-                  placeholder="Enter your first name"
+                  placeholder="experiences number ?"
                   value={this.state.candidate_nb_experience}
                   onChange={this.onChange}
                 />

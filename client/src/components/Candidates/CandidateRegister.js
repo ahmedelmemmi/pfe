@@ -17,21 +17,37 @@ class CandidateRegister extends Component {
     });
   }
   render() {
-    return (
-      <div>
-        <div className="already">
-          {" "}
-          {this.state.visibility ? (
-            <CandidateLogin></CandidateLogin>
-          ) : (
-            <CandidateRegistration></CandidateRegistration>
-          )}
-        </div>
-        {!this.state.visibility && (
-          <button onClick={this.handleToggleVisibility}>Login </button>
-        )}
-      </div>
-    );
+     return (
+       <div>
+         <div className="already row">
+           {" "}
+           {this.state.visibility ? (
+             <CandidateLogin></CandidateLogin>
+           ) : (
+             <CandidateRegistration></CandidateRegistration>
+           )}
+         </div>
+         <div className="col">
+         {!this.state.visibility && (<div >
+           <img src={require("../../logos/Asset 2@2x.svg")} id="interphoto"  alt="" /> 
+           <button onClick={this.handleToggleVisibility}>Login </button>
+           </div>
+         )}
+         </div>
+       </div>
+     );
+    // return (
+    //   <div>
+    //     <CandidateRegistration />
+    //     <CandidateLogin>
+    //     </CandidateLogin>
+    //     {!this.state.visibility && (<div>
+    //        <img src={require("../../logos/Asset 2@2x.svg")} id="interphoto"  alt="" /> 
+    //        <button onClick={this.handleToggleVisibility}>Login </button>
+    //        </div>
+    //      )}
+    //   </div>
+    // )
   }
 }
 
