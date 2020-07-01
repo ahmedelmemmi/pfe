@@ -62,64 +62,79 @@ export default class AddExperience extends Component{
             <div className="row">
               <div className="col-md-6 mt-5 mx-auto">
                 <form noValidate onSubmit={this.onSubmit}>
-                  <h1 className="h3 mb-3 font-weight-normal">Add new Experience</h1>
-                  <div className="form-group">
-                    <label htmlFor="name">ex_company</label>
-                    <input
-                      type="text"
-                      className="form-control"
-                      name="ex_company"
-                      placeholder="Enter your ex_company"
-                      value={this.state.ex_company}
-                      onChange={this.onChange}
-                    />
+                  <h1 className="h3 mb-3 font-weight-normal">Add new experience</h1>
+                  <div className="form-group row">
+                    <div className="col-25">
+                        <label htmlFor="name">ex_company</label>
+                    </div>
+                    <div className="col-40">
+                        <input
+                          type="text"
+                          className="form-control"
+                          name="ex_company"
+                          placeholder="Enter your ex_company"
+                          value={this.state.ex_company}
+                          onChange={this.onChange}
+                        />
+                    </div>
                   </div>
-                  <div className="form-group">
-                    <label htmlFor="name">ex_title</label>
-                    <input
-                      type="email"
-                      className="form-control"
-                      name="ex_title"
-                      placeholder="Enter your  ex_title"
-                      value={this.state.ex_title}
-                      onChange={this.onChange}
-                    />
+                  <div className="form-group row">
+                    <div className="col-25">
+                        <label htmlFor="name">ex_title</label>
+                    </div>
+                    <div className="col-40">
+                        <input
+                          type="email"
+                          className="form-control"
+                          name="ex_title"
+                          placeholder="Enter your  ex_title"
+                          value={this.state.ex_title}
+                          onChange={this.onChange}
+                        />
+                    </div>
                   </div>
-                  <div className="form-group">
-                    <label htmlFor="name">City</label>
-                    <select
-                      type="text"
-                      className="form-control"
-                      name="ex_city"
-                      placeholder="Enter ex_city"
-                      value={this.state.ex_city}
-                      onChange={this.onChange}
-                    >
-                                        <option value="Béja">Béja</option>
-                                        <option value="Bizerte">Bizerte</option>
-                                        <option value="Gabès">Gabès</option>
-                                        <option value="Gafsa">Gafsa</option>
-                                        <option value="Jendouba">Jendouba</option>
-                                        <option value="Kairouan">Kairouan</option>
-                                        <option value="Kasserine">Kasserine</option>
-                                        <option value="Kébili">Kébili</option>
-                                        <option value="Kef">Kef</option>
-                                        <option value="Mahdia">Mahdia</option>
-                                        <option value="Médenine">Médenine</option>
-                                        <option value="Monastir">Monastir</option>
-                                        <option value="Nabeul">Nabeul</option>
-                                        <option value="Sfax">Sfax</option>
-                                        <option value="Sidi Bouzid">Sidi Bouzid</option>
-                                        <option value="Siliana">Siliana</option>
-                                        <option value="Sousse">Sousse</option>
-                                        <option value="Tataouine">Tataouine</option>
-                                        <option value="Tozeur">Tozeur</option>
-                                        <option value="Tunis">Tunis</option>
-                                        <option value="Zaghouan">Zaghouan</option>
-                      </select>
+                  <div className="form-group row">
+                    <div className="col-25">
+                        <label htmlFor="name">City</label>
+                    </div>
+                    <div className="col-40">
+                        <select
+                          type="text"
+                          className="form-control"
+                          name="ex_city"
+                          placeholder="Enter ex_city"
+                          value={this.state.ex_city}
+                          onChange={this.onChange}
+                        >
+                                            <option value="Béja">Béja</option>
+                                            <option value="Bizerte">Bizerte</option>
+                                            <option value="Gabès">Gabès</option>
+                                            <option value="Gafsa">Gafsa</option>
+                                            <option value="Jendouba">Jendouba</option>
+                                            <option value="Kairouan">Kairouan</option>
+                                            <option value="Kasserine">Kasserine</option>
+                                            <option value="Kébili">Kébili</option>
+                                            <option value="Kef">Kef</option>
+                                            <option value="Mahdia">Mahdia</option>
+                                            <option value="Médenine">Médenine</option>
+                                            <option value="Monastir">Monastir</option>
+                                            <option value="Nabeul">Nabeul</option>
+                                            <option value="Sfax">Sfax</option>
+                                            <option value="Sidi Bouzid">Sidi Bouzid</option>
+                                            <option value="Siliana">Siliana</option>
+                                            <option value="Sousse">Sousse</option>
+                                            <option value="Tataouine">Tataouine</option>
+                                            <option value="Tozeur">Tozeur</option>
+                                            <option value="Tunis">Tunis</option>
+                                            <option value="Zaghouan">Zaghouan</option>
+                          </select>
+                      </div>
                   </div>
-                  <div className="form-group">
+                  <div className="form-group row">
+                  <div className="col-25">
                     <label htmlFor="name">Begin Date</label>
+                    </div>
+                    <div className="col-40">
                     <DatePicker
                       type="text"
                       className="form-control"
@@ -128,9 +143,13 @@ export default class AddExperience extends Component{
                       selected={this.state.ex_begin_date}
                       onChange={this.handleChange}
                     />
+                    </div>
                   </div>
-                  <div className="form-group">
+                  <div className="form-group row">
+                  <div className="col-25">
                     <label htmlFor="name">End Date</label>
+                    </div>
+                    <div className="col-40">
                     <DatePicker
                       type="text"
                       className="form-control"
@@ -139,13 +158,28 @@ export default class AddExperience extends Component{
                       selected={this.state.ex_end_date}
                       onChange={this.handleChange2}
                     />
+                    </div>
                   </div>
-                  <button
+                  <div className="row">
+                <div className="col-50">
+                <div className="mt-4">
+                  <input
                     type="submit"
-                    className="btn btn-lg btn-primary btn-block"
-                  >
-                    Add Experience
-                  </button>
+                    value="Cancel"
+                    className="mt-1 p-2 border cursor-pointer bg-purple-600 "
+                  />
+                </div>
+                </div>
+                <div className="col-50">
+                <div className="mt-4">
+                  <input
+                    type="submit"
+                    value="Add experience"
+                    className="mt-1 p-2 border cursor-pointer bg-purple-600 "
+                  />
+                </div>
+                </div>
+              </div>
                 </form>
               </div>
             </div>

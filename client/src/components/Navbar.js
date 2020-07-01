@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { NavLink, withRouter } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.css';
-
+import '../styles/components/Home/_Navbar.scss'
 
 
 class Navbar extends Component {
@@ -16,8 +16,7 @@ class Navbar extends Component {
 
   toggleOpen = () => this.setState({ isOpen: !this.state.isOpen });
   render() {
-<<<<<<< HEAD
-    const menuClass = `dropdown-menu${this.state.isOpen ? " show" : ""}`;
+    const menuClass = `dropdown-menu${this.state.isOpen ? " show" : ""} `;
      const candidateLinks = (
        <ul className="navbar-nav">
          <li className="nav-item">
@@ -47,7 +46,7 @@ class Navbar extends Component {
          </li>
          <li className="nav-item">
            <NavLink
-             to="/candidate/internships"
+             to="/candidate/internshipsPage"
              activeClassName="is-active"
              className="nav-link"
              exact
@@ -72,101 +71,47 @@ class Navbar extends Component {
              </li>
        </ul>
      );
-=======
-    const candidateLinks = (
-      <ul className="navbar-nav">
-        <li>
-          <NavLink to="/candidate/profile" className="nav-link">
-            User
-          </NavLink>
-        </li>
-        <li className="nav-item">
-          <NavLink
-            to="/candidate/invitations"
-            activeClassName="is-active"
-            exact
-          >
-            My invitations
-          </NavLink>
-        </li>
-        <li className="nav-item">
-          <NavLink
-            to="/candidate/applications"
-            activeClassName="is-active"
-            exact
-          >
-            My applications
-          </NavLink>
-        </li>
-        <li className="nav-item">
-          <NavLink
-            to="/candidate/internshipsPage"
-            activeClassName="is-active"
-            exact
-          >
-            Internships
-          </NavLink>
-        </li>
-      </ul>
-    );
-
-    const companyLinks = (
-      <ul className="navbar-nav">
-        <li className="nav-item">
-          <NavLink to="/company/candidates" className="nav-link">
-            My Candidates
-          </NavLink>
-        </li>
-        <li className="nav-item">
-          <NavLink to="/company/internships" className="nav-link">
-            My internships
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to="/company/profile" className="nav-link">
-            User
-          </NavLink>
-        </li>
-      </ul>
-    );
->>>>>>> 7abc2c81beedfe2df8180dbd16d70d662c108225
     const loginRegLink = (
-      <ul className="navbar-nav" >
-        <li className="nav-item dropdown " onClick={this.toggleOpen}>
-          <a className="nav-link dropdown-toggle" 
-          id="navbarDropdown" role="button" 
-          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Register
-          </a>
-          <div className={menuClass} aria-labelledby="navbarDropdown">
-            <NavLink to="/candidate/register"
-             activeClassName="is-active" 
-             className="dropdown-item" exact>
-              Register candidate
-            </NavLink>
-            <NavLink to="/company/register" 
-            activeClassName="is-active" 
-            className="dropdown-item" exact>
-              Register company
-            </NavLink>
-          </div>
-        </li>
-      </ul>
+      // <ul className="navbar-nav " >
+      //   <li className="nav-item dropdown " onClick={this.toggleOpen}>
+      //     <a className="nav-link dropdown-toggle" 
+      //     id="navbarDropdown" role="button" 
+      //     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      //       Register
+      //     </a>
+      //     <div className={menuClass} aria-labelledby="navbarDropdown" id="dropmenu">
+      //       <NavLink to="/candidate/register"
+      //        activeClassName="is-active" 
+      //        className="dropdown-item" exact>
+      //         Candidate
+      //       </NavLink>
+      //       <div class="dropdown-divider"></div>
+      //       <NavLink to="/company/register" 
+      //       activeClassName="is-active" 
+      //       className="dropdown-item" exact>
+      //         Company
+      //       </NavLink>
+      //     </div>
+      //   </li>
+      // </ul>
 
-<<<<<<< HEAD
-=======
-    const userLink = (
-      <div>
-        {localStorage.usertype == 1 ? candidateLinks : companyLinks}
-        <ul className="navbar-nav">
-          <li className="nav-item">
-            <a href="/" onClick={this.logOut.bind(this)} className="nav-link">
-              Logout
-            </a>
+      <ul className="navbar-nav">
+      <li className="nav-item">
+      <NavLink to="/candidate/register"
+              activeClassName="is-active" 
+              className="nav-link" exact>
+               Candidate
+             </NavLink>
+      </li>
+      <li className="nav-item">
+      <NavLink to="/company/register" 
+             activeClassName="is-active" 
+             className="nav-link" exact>
+               Company
+             </NavLink>
           </li>
-        </ul>
-      </div>
->>>>>>> 7abc2c81beedfe2df8180dbd16d70d662c108225
+    </ul>
+
     );
 
      const userLink = (
@@ -183,29 +128,27 @@ class Navbar extends Component {
      );
     return (
       
-      <nav className="navbar navbar-expand-lg ">
-        <img id ="path" src={require("../logos/Path 1.svg")} alt="" /> 
+        
+          <nav className="navbar navbar-expand-lg sticky-top">
+        
+        
         <div
-          className="collapse navbar-collapse justify-content-end"
+          className="collapse navbar-collapse justify-content-center"
           id="navbarsExample10"
         >
-          <ul className="navbar-nav">
-            <li className="nav-item">
-              <NavLink to="/" className="nav-link" exact>
-                Home
-              </NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink to="/about" className="nav-link" exact>
-                About Us
-              </NavLink>
-            </li>
+           <a className="navbar-brand" href="/">
+            <img src={require("../logos/logo_devagnos.png")}  id="logo_devagnos"alt=""/>
+            </a>
+          
+          <ul className="navbar-nav ">
+            
            
             {localStorage.usertoken ? userLink : loginRegLink}
           </ul>
           
         </div>
       </nav>
+      
     );
   }
 }

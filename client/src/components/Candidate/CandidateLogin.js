@@ -48,23 +48,23 @@ class CandidateLogin extends Component {
               <h1 className="h3 mb-3 font-weight-normal">Please sign in</h1>
 
               <div className="form-group">
-                <label htmlFor="candidate_email">candidate_email address</label>
+                <label htmlFor="candidate_email">email address</label>
                 <input
                   type="email"
                   className="form-control"
                   name="candidate_email"
-                  placeholder="Enter candidate_email"
+                  placeholder="Enter your email"
                   value={this.state.candidate_email}
                   onChange={this.onChange}
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="candidate_password">candidate_password</label>
+                <label htmlFor="candidate_password">password</label>
                 <input
                   type="password"
                   className="form-control"
                   name="candidate_password"
-                  placeholder="candidate_password"
+                  placeholder="Enter your password"
                   value={this.state.candidate_password}
                   onChange={this.onChange}
                 />

@@ -46,10 +46,13 @@ export default class AddExperience extends Component{
             <div className="row">
               <div className="col-md-6 mt-5 mx-auto">
                 <form noValidate onSubmit={this.onSubmit}>
-                  <h1 className="h3 mb-3 font-weight-normal">Add new Education</h1>
+                  <h1 className="h3 mb-3 font-weight-normal">Add education</h1>
                   
-                  <div className="form-group">
-                    <label htmlFor="name">university</label>
+                  <div className="form-group row">
+                  <div className="col-25">
+                    <label htmlFor="name">University</label>
+                    </div>
+                    <div className="col-40">
                     <select
                       type="text"
                       className="form-control"
@@ -62,9 +65,13 @@ export default class AddExperience extends Component{
                                         <option value="University of Monastir">University of Monastir</option>
                                        
                       </select>
+                      </div>
                   </div>
-                  <div className="form-group">
-                    <label htmlFor="name">study_area</label>
+                  <div className="form-group row">
+                  <div className="col-25">
+                    <label htmlFor="name">Study Area</label>
+                    </div>
+                    <div className="col-40">
                     <select
                       type="text"
                       className="form-control"
@@ -78,9 +85,13 @@ export default class AddExperience extends Component{
                                         <option value="Architect">Architect</option>
                                     
                       </select>
+                      </div>
                   </div>
-                  <div className="form-group">
-                    <label htmlFor="name">degree</label>
+                  <div className="form-group row">
+                  <div className="col-25">
+                    <label htmlFor="name">Degree</label>
+                    </div>
+                    <div className="col-40">
                     <select
                       type="text"
                       className="form-control"
@@ -94,13 +105,28 @@ export default class AddExperience extends Component{
                                         <option value="High School Diploma">High School Diploma</option>
                                     
                       </select>
+                      </div>
                   </div>
-                  <button
-                    type="submit"
-                    className="btn btn-lg btn-primary btn-block"
-                  >
-                    Add Experience
-                  </button>
+                  <div className="row">
+                      <div className="col-50">
+                        <div className="mt-4">
+                          <input
+                            type="submit"
+                            value="Cancel"
+                            className="mt-1 p-2 border cursor-pointer bg-purple-600 "
+                          />
+                        </div>
+                      </div>
+                      <div className="col-50">
+                        <div className="mt-4">
+                          <input
+                            type="submit"
+                            value="Add education"
+                            className="mt-1 p-2 border cursor-pointer bg-purple-600 "
+                          />
+                        </div>
+                      </div>
+                  </div>
                 </form>
               </div>
             </div>

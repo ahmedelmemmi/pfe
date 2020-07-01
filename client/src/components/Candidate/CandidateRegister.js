@@ -18,19 +18,23 @@ class CandidateRegister extends Component {
   }
   render() {
      return (
-       <div>
-         <div className="already row">
+       <div className="already row">
+         <div className="col">
            {" "}
            {this.state.visibility ? (
-             <CandidateLogin></CandidateLogin>
+             <CandidateLogin/>
            ) : (
-             <CandidateRegistration></CandidateRegistration>
+             <CandidateRegistration/>
            )}
          </div>
          <div className="col">
-         {!this.state.visibility && (<div >
+         {!this.state.visibility && (<div className="row">
+           <div className="col-md-3 mt-5 mx-auto">
            <img src={require("../../logos/Asset 2@2x.svg")} id="interphoto"  alt="" /> 
+           </div>
+           <div className="col-md-6 mt-5 mx-auto" >
            <button onClick={this.handleToggleVisibility}>Login </button>
+           </div>
            </div>
          )}
          </div>

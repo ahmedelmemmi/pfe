@@ -42,23 +42,23 @@ class CompanyLogin extends Component {
               <h1 className="h3 mb-3 font-weight-normal">Please sign in</h1>
 
               <div className="form-group">
-                <label htmlFor="company_email">company_email address</label>
+                <label htmlFor="company_email">email address</label>
                 <input
                   type="text"
                   className="form-control"
                   name="company_email"
-                  placeholder="Enter company_email"
+                  placeholder="Enter your email"
                   value={this.state.company_email}
                   onChange={this.onChange}
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="company_password">company_password</label>
+                <label htmlFor="company_password">password</label>
                 <input
                   type="password"
                   className="form-control"
                   name="company_password"
-                  placeholder="company_password"
+                  placeholder="Enter your password"
                   value={this.state.company_password}
                   onChange={this.onChange}
                 />

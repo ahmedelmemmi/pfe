@@ -62,67 +62,68 @@ class CompanyRegistration extends Component {
         <div className="row">
           <div className="col-md-6 mt-5 mx-auto">
             <form noValidate onSubmit={this.onSubmit}>
-              <h1 className="h3 mb-3 font-weight-normal">Register</h1>
+              <h1 className="h3 mb-3 font-weight-normal">Register as a company</h1>
               <div className="form-group">
-                <label htmlFor="name">full name</label>
+                <label htmlFor="name">Full Name</label>
                 <input
                   type="text"
                   className="form-control"
                   name="company_name"
-                  placeholder="Enter your company_name"
+                  placeholder="Enter your company's name"
                   value={this.state.company_name}
                   onChange={this.onChange}
                 />
               </div>
 
               <div className="form-group">
-                <label htmlFor="name">email address</label>
+                <label htmlFor="name">Email Address</label>
                 <input
                   type="email"
                   className="form-control"
                   name="company_email"
-                  placeholder="Enter candidate_email"
+                  placeholder="Enter your email"
                   value={this.state.candidate_email}
                   onChange={this.onChange}
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="name">password</label>
+                <label htmlFor="name">Password</label>
                 <input
                   type="password"
                   className="form-control"
                   name="company_password"
-                  placeholder="company_password"
+                  placeholder="set your password"
                   value={this.state.company_password}
                   onChange={this.onChange}
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="name">company_taxcode</label>
+                <label htmlFor="name">Taxcode</label>
                 <input
                   type="text"
                   className="form-control"
                   name="company_taxcode"
-                  placeholder="Enter your company_taxcode"
+                  placeholder="Enter your company's taxcode"
                   value={this.state.company_taxcode}
                   onChange={this.onChange}
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="name">company_adress</label>
+                <label htmlFor="name">Company Adress</label>
                 <input
                   className="form-control"
                   name="company_adress"
+                  placeholder="Enter your company adress"
                   value={this.state.company_adress}
                   onChange={this.onChange}/> 
               </div>
               <div className="form-group">
-                <label htmlFor="name">company_field</label>
+                <label htmlFor="name">Field</label>
                 <input
                   type="text"
                   className="form-control"
                   name="company_field"
-                  placeholder="Enter your company_field"
+                  placeholder="Enter your company field"
                   value={this.state.company_field}
                   onChange={this.onChange}
                 />
@@ -133,7 +134,6 @@ class CompanyRegistration extends Component {
                   type="text"
                   className="form-control"
                   name="company_city"
-                  placeholder="Enter company_city"
                   value={this.state.company_city}
                   onChange={this.onChange}
                 >
@@ -168,17 +168,6 @@ class CompanyRegistration extends Component {
                   name="company_phone"
                   placeholder="Enter company_phone"
                   value={this.state.company_phone}
-                  onChange={this.onChange}
-                />
-              </div>
-              <div className="form-group">
-                <label htmlFor="name">company_photo</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  name="company_photo"
-                  placeholder="Enter your first name"
-                  value={this.state.company_photo}
                   onChange={this.onChange}
                 />
               </div>

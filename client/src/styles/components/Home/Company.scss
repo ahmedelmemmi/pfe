@@ -5,6 +5,7 @@
   #Post_btn {
     position: relative;
     overflow: visible;
+    margin-top: 5%;
     left: 80px;
     width: 200px;
     height: 50px;
@@ -20,9 +21,20 @@ img{
 #work_photo{
     position: relative;
     top: 70px;
-    right: -222px;
+    right: -150px;
+    width: 78%;
 }
 #Talent{
     position: relative;
     top: 300px;
+}
+.row{
+    position: relative; 
+    margin-bottom: 80px ;
+}
+#talent_title{
+    color: #F43478;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 40px;
+    font-weight: bold;
 }

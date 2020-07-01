@@ -65,7 +65,7 @@ class CandidateRegistration extends Component {
         <div className="row">
           <div className="col-md-6 mt-5 mx-auto">
             <form noValidate onSubmit={this.onSubmit}>
-              <h1 className="h3 mb-3 font-weight-normal">Register</h1>
+              <h1 className="h3 mb-3 font-weight-normal">Register as a candidate</h1>
               <div className="form-group">
                 <label htmlFor="name">full name</label>
                 <input

@@ -1,5 +1,5 @@
 #mainContainer {
-    width: 150px;  
+    width: 200px;  
     padding: 0px 15px 15px 15px;
     border-radius: 5px;
     font-family: arial;
@@ -9,27 +9,6 @@
     background: #ffffff;
     margin: 30px auto;
   }
-//   #mainContainer2{
-//     width: 150px;  
-//     padding: 0px 15px 15px 15px;
-//     border-radius: 5px;
-//     font-family: arial;
-//     line-height: 16px;
-//     color: #333333;
-//     font-size: 14px;
-//     background: #ffffff;
-//     margin: 30px auto;
-//   }
-  
-//   .button {
-//     background-color: #00BFFF;
-//     border-color: #3ac162;
-//     font-weight: bold;
-//     padding: 12px 15px;
-//     color: #ffffff;
-//     margin-right: 50px;
-//   }
-  
   .errorMsg {
     color: #cc0000;
     margin-bottom: 12px;
@@ -48,4 +27,12 @@
     margin-top:12px;
     background: #e5e5e5;
     padding:1px;
-    }
+  }
+  select{
+    width: 100px;
+    height: 50px;
+    border-radius: 30px;
+  }
+ .row >h1 {
+  color: #F43478;
+ }

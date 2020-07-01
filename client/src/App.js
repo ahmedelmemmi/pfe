@@ -9,6 +9,8 @@ import CandidateApplication from "./components/Candidate/CandidateApplication";
 import InternshipsPage from "./components/Candidate/InternshipsPage";
 import CompanyRegister from "./components/Company/CompanyRegister";
 import CompanyProfile from "./components/Company/CompanyProfile";
+import AddInternship from "./components/Internships/AddInternship"
+import Footer from "./components/Footer";
 
 class App extends Component {
   render() {
@@ -32,10 +34,10 @@ class App extends Component {
             component={InternshipsPage}
           />
           <Route path="/company/register" component={CompanyRegister} />
-          <Route path="/about" component={AboutUs} />
           <Route path="/company/profile" component={CompanyProfile} />
           <Route path="/company/internships" component={AddInternship} />
         </Switch>
+        <Footer/>
       </Router>
     );
   }

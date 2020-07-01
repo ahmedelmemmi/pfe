@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "../../styles/components/Candidate/_CandidateSkills.scss"
 
 export default class CandidateProfile extends Component {
 
@@ -21,7 +22,7 @@ export default class CandidateProfile extends Component {
   
     appendData() {
            this.displayData.push(<div  id="display-data"><pre>{this.state.postVal}</pre></div>,<div  id="display-data2"><pre>{this.state.level}</pre></div>);
-           //this.displayData.push(<div  id="display-data"><pre>{this.state.level}</pre></div>);
+           
            this.setState({
               showdata : this.displayData,
               postVal : "",
@@ -45,10 +46,13 @@ export default class CandidateProfile extends Component {
     render() {
       return (
             <div className="row "id="mainContainer">
-                <h1 className="text-lg border-b border-gray-500">
+
+                <h1 className="text-lg border-b border-gray-500 ">
                  Skills
                 </h1>
-               <select rows="4" cols="50" 
+                <div className="row">
+                <div className="col-50">
+               <select 
                value={this.state.postVal} 
                onChange={this.handleChange} >
                    <option value="Javascript">Javascript</option>
@@ -58,7 +62,9 @@ export default class CandidateProfile extends Component {
                    <option value="MongoDB">MongoDB</option>
 
                </select>
-               <select rows="4" cols="50" 
+               </div>
+               <div className="col-50">
+               <select 
                value={this.state.level} 
                onChange={this.handleChange2} >
                    <option value="Beginner">Beginner</option>
@@ -66,6 +72,8 @@ export default class CandidateProfile extends Component {
                    <option value="Advanced">Advanced</option>
 
                </select>
+               </div>
+               </div>
                <div >
                <input  type="submit" className="button" onClick={this.appendData}  value="Add"/>
                </div>
