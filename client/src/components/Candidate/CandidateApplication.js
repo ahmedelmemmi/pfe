@@ -32,8 +32,8 @@ class CandidateApplication extends Component {
   render() {
     return (
       <div>
-        {/* maquette : application details page for candidate */}
-
+        {/*  application details page for candidate */}
+        <h3 className="notif">{this.state.application.candidate_message}</h3>
         <h2>
           {this.state.internship.internship_title} at{" "}
           {this.state.company.company_name}

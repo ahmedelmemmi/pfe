@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import CandidateSavedInternships from "./CandidateSavedInternships";
 import CandidateInternships from "./CandidateInternships";
+import "../../styles/components/Candidate/_CandidateInternship.scss";
+
 class InternshipsPage extends Component {
   constructor(props) {
     super(props);
@@ -36,7 +38,7 @@ class InternshipsPage extends Component {
             Saved Internships
           </button>
         </div>
-        <div className="already">
+        <div className="">
           {" "}
           {this.state.visibility_search ? (
             <CandidateInternships></CandidateInternships>

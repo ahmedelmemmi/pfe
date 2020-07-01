@@ -56,7 +56,7 @@ export const getCandidate = (id) => {
 };
 export const GetApplications = (config) => {
   return axios
-    .get("/applications/ofCandidate", config)
+    .get("/application/ofCandidate", config)
 
     .then((response) => {
       console.log(response);
@@ -69,7 +69,7 @@ export const GetApplications = (config) => {
 
 export const GetApplication = (id) => {
   return axios
-    .get("/applications/" + id)
+    .get("/application/" + id)
 
     .then((response) => {
       console.log(response);

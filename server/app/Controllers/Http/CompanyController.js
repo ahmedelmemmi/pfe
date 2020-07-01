@@ -41,11 +41,14 @@ class CompanyController {
       "company_email",
       "company_password",
     ]);
-
-    const token = await auth
-      .authenticator("company")
-      .attempt(company_email, company_password);
-    return response.json({ token: token, email: false });
+    try {
+      const token = await auth
+        .authenticator("company")
+        .attempt(company_email, company_password);
+      return response.json({ token: token, email: false });
+    } catch (error) {
+      return response.json({ message: error });
+    }
   }
   async show({ params, response }) {
     const user = await Company.find(params.id);

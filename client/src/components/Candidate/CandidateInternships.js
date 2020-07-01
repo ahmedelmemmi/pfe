@@ -5,7 +5,6 @@ import { createSavedApplication_f } from "./ApplicationsFunctions.js";
 import { connect } from "react-redux";
 import { internships_f } from "../../store/actions/InternshipsActions";
 import { filter_intern } from "../../store/actions/Filter_internActions";
-import "../../styles/components/Candidate/_CandidateInternship.scss"
 
 class CandidateInternships extends Component {
   constructor(props) {
@@ -17,7 +16,7 @@ class CandidateInternships extends Component {
       internship_title: "",
       internship_field: "",
       internship_duration: "",
-      disabled : false
+      disabled: false,
     };
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
@@ -73,9 +72,9 @@ class CandidateInternships extends Component {
     });
   }
 
-  disablebutton(){
+  disablebutton() {
     document.getElementById("apply_btn2").disabled = true;
-    document.getElementById("apply_btn2").value="applied";
+    document.getElementById("apply_btn2").value = "applied";
   }
 
   render() {
@@ -84,100 +83,98 @@ class CandidateInternships extends Component {
     console.log(this.state);
     return (
       <div className="row">
-        
-       
         <div className="col-md-3 mt-5 mx-auto">
           <div className="position-fixed">
-          <form noValidate onSubmit={this.onSubmit}>
-            <h1 className="h3 mb-3 font-weight-normal">Narrow your results</h1>
-           
+            <form noValidate onSubmit={this.onSubmit}>
+              <h1 className="h3 mb-3 font-weight-normal">
+                Narrow your results
+              </h1>
 
-            <div className="form-group">
-              <label htmlFor="internship_title">Internship title</label>
-              <input
-                type="text"
-                className="form-control"
-                name="internship_title"
-                placeholder="title"
-                value={this.state.internship_title}
-                onChange={this.onChange}
-              />
-            </div>
-                {console.log("tefff")}
-            <div className="form-group">
-              <label htmlFor="internship_field">Internship field</label>
-              <select
-                type="text"
-                className="form-control"
-                name="internship_field"
-                placeholder="internship_field"
-                value={this.state.internship_field}
-                onChange={this.onChange}
-              >
-                <option value=""></option>
-                <option value="Accounting & Finance">
-                  Accounting & Finance
-                </option>
-                <option value="Design & Creative">Design & Creative</option>
-                <option value="Technology & IT">Technology & IT</option>
-                <option value="Legal">Legal</option>
+              <div className="form-group">
+                <label htmlFor="internship_title">Internship title</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  name="internship_title"
+                  placeholder="title"
+                  value={this.state.internship_title}
+                  onChange={this.onChange}
+                />
+              </div>
+              <div className="form-group">
+                <label htmlFor="internship_field">Internship field</label>
+                <select
+                  type="text"
+                  className="form-control"
+                  name="internship_field"
+                  placeholder="internship_field"
+                  value={this.state.internship_field}
+                  onChange={this.onChange}
+                >
+                  <option value=""></option>
+                  <option value="Accounting & Finance">
+                    Accounting & Finance
+                  </option>
+                  <option value="Design & Creative">Design & Creative</option>
+                  <option value="Technology & IT">Technology & IT</option>
+                  <option value="Legal">Legal</option>
 
-                <option value="Administrative & Office">
-                  Administrative & Office
-                </option>
-                <option value="Writing">Writing</option>
-                <option value="Engineering & Architecture">
-                  Engineering & Architecture
-                </option>
-              </select>
-            </div>
-            <div className="form-group">
-              <label htmlFor="internship_duration">Internship duration</label>
-              <select
-                type="text"
-                className="form-control"
-                name="internship_duration"
-                placeholder="internship_duration"
-                value={this.state.internship_duration}
-                onChange={this.onChange}
-              >
-                <option value=""></option>
+                  <option value="Administrative & Office">
+                    Administrative & Office
+                  </option>
+                  <option value="Writing">Writing</option>
+                  <option value="Engineering & Architecture">
+                    Engineering & Architecture
+                  </option>
+                </select>
+              </div>
+              <div className="form-group">
+                <label htmlFor="internship_duration">Internship duration</label>
+                <select
+                  type="text"
+                  className="form-control"
+                  name="internship_duration"
+                  placeholder="internship_duration"
+                  value={this.state.internship_duration}
+                  onChange={this.onChange}
+                >
+                  <option value=""></option>
 
-                <option value="One month duration">One month duration</option>
-                <option value="three month duration">
-                  three month duration
-                </option>
-                <option value="six month duration">six month duration</option>
-              </select>
-            </div>
-            <div className="row">
+                  <option value="One month duration">One month duration</option>
+                  <option value="three month duration">
+                    three month duration
+                  </option>
+                  <option value="six month duration">six month duration</option>
+                </select>
+              </div>
+              <div className="row">
                 <div className="col-50">
-                <div className="mt-4">
-                  <input
-                    type="reset"
-                    value="Clear"
-                    className="mt-1 p-2 border  cursor-pointer bg-purple-600 "
-                    onClick={(e) => {
-                      this.clearFields();
-                    }}
-                  />
-                </div>
+                  <div className="mt-4">
+                    <input
+                      type="reset"
+                      value="Clear"
+                      className="mt-1 p-2 border  cursor-pointer bg-purple-600 "
+                      onClick={(e) => {
+                        this.clearFields();
+                      }}
+                    />
+                  </div>
                 </div>
                 <div className="col-50">
-                <div className="mt-4">
-                  <input
-                    type="submit"
-                    value="Search"
-                    className="mt-1 p-2 border  cursor-pointer bg-purple-600 "
-                  />
-                </div>
+                  <div className="mt-4">
+                    <input
+                      type="submit"
+                      value="Search"
+                      className="mt-1 p-2 border  cursor-pointer bg-purple-600 "
+                    />
+                  </div>
                 </div>
               </div>
-          </form>
+            </form>
           </div>
         </div>
-               {/* bari fouuuuuuuuuuut */}
-        <div className="col-md-6 mt-5 mx-auto ">
+        {/* bari fouuuuuuuuuuut */}
+        <div className=" col-md-6 mt-5 mx-auto ">
           {this.props.internship.length === 0 && (
             <p>No matching results. Search again</p>
           )}
@@ -185,71 +182,71 @@ class CandidateInternships extends Component {
           {this.props.internship.map((internship) => (
             <div className="container" id="box_opp">
               <div className="row">
-                    <div className="col-4">
-                            <img src={require('../../logos/facebook.png')} alt=""/>
-                    </div>
-                  <div className="col-8">
-                      <div className="d-flex justify-content-start">
-                        <h4>
-                          {" "}
-                          {internship.internship_title} at :{" "}
-                          {internship.company.company_name}
-                        </h4>
-                      </div>
-                      <div className="d-flex justify-content-end">
-                        <h5>
-                          {" "}
-                          {internship.internship_begin_date} | {internship.internship_end_date}
-                        </h5>
-                        </div>
-                      
-                        <p>
-                          {" "}
-                          {internship.internship_duration} | {internship.internship_type}
-                        </p>
-                        
-                      <p> Description : {internship.internship_description}</p>
-                      <div className="row justify-content-end">
-                            <div className="col-20">
-                                <Link
-                                  to={"/internship/" + internship.id}
-                                  activeClassName="is-active"
-                                  exact={true}
-                                  
-                                >
-                                  <button id="apply_btn2">See Internship details</button>
-                                </Link>
-                            </div>
-                          <div className="col-20">
-                              <button 
-                              type="submit"
-                              id="apply_btn2"
-                              disabled={false}
-                              class="btn btn-primary"
-                                value="Apply"
-                                  onClick={(e) => {
-                                    this.createApplication(internship.id);
-                                    this.value = 'Applied';
-                                    this.setState({disabled: "true"})
-                                    alert("Application has been sent.");
-                                  }}
-                              >
-                                Apply
-                              </button>
-                        
-                          </div>
-                          <div className="col-20">
-                              <input 
-                              type="submit" 
-                              value="Add to favorites"
-                              id="apply_btn3"
-                                onClick={(e) => {
-                                  this.createSavedApplication(internship.id);
-                                }}
-                              />
-                          </div>
-                      </div>
+                <div className="col-4">
+                  <img src={require("../../logos/facebook.png")} alt="" />
+                </div>
+                <div className="col-8">
+                  <div className="d-flex justify-content-start">
+                    <h4>
+                      {" "}
+                      {internship.internship_title} at :{" "}
+                      {internship.company.company_name}
+                    </h4>
                   </div>
+                  <div className="d-flex justify-content-end">
+                    <h5>
+                      {" "}
+                      {internship.internship_begin_date} |{" "}
+                      {internship.internship_end_date}
+                    </h5>
+                  </div>
+
+                  <p>
+                    {" "}
+                    {internship.internship_duration} |{" "}
+                    {internship.internship_type}
+                  </p>
+
+                  <p> Description : {internship.internship_description}</p>
+                  <div className="row justify-content-end">
+                    <div className="col-20">
+                      <Link
+                        to={"/internship/" + internship.id}
+                        activeClassName="is-active"
+                        exact={true}
+                      >
+                        <button id="apply_btn2">See Internship details</button>
+                      </Link>
+                    </div>
+                    <div className="col-20">
+                      <button
+                        type="submit"
+                        id="apply_btn2"
+                        disabled={false}
+                        class="btn btn-primary"
+                        value="Apply"
+                        onClick={(e) => {
+                          this.createApplication(internship.id);
+                          this.value = "Applied";
+                          this.setState({ disabled: "true" });
+                          alert("Application has been sent.");
+                        }}
+                      >
+                        Apply
+                      </button>
+                    </div>
+                    <div className="col-20">
+                      <input
+                        type="submit"
+                        value="Add to favorites"
+                        id="apply_btn3"
+                        onClick={(e) => {
+                          this.createSavedApplication(internship.id);
+                        }}
+                      />
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           ))}

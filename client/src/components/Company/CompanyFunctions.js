@@ -11,7 +11,7 @@ export const CompanyRegister_f = (newCompany) => {
       company_adress: newCompany.company_adress,
       company_field: newCompany.company_field,
       company_city: newCompany.company_city,
-      company_photo: newCompany.company_photo
+      company_photo: newCompany.company_photo,
     })
     .then((response) => {
       console.log("Registered");
@@ -24,7 +24,7 @@ export const CompanyLogin_f = (user) => {
   return axios
     .post("/company/login", {
       company_email: user.company_email,
-      company_password: user.company_password
+      company_password: user.company_password,
     })
     .then((res) => {
       localStorage.setItem("usertoken", res.data.token.token);
@@ -42,13 +42,44 @@ export const CompanyLogin_f = (user) => {
       console.log(err);
     });
 };
- export const getCompany = id => {
-   return axios
-     .get(`company/${id}`)
-     .then((response) => {
-       return response;
-     })
-     .catch((err) => {
-       return err;
-     });
- };
+export const getCompany = (id) => {
+  return axios
+    .get(`company/${id}`)
+    .then((response) => {
+      return response;
+    })
+    .catch((err) => {
+      return err;
+    });
+};
+export const saveComments_f = (comments, id) => {
+  return axios
+    .post(`application/updateComments/${id}`, { comments: comments })
+    .then((response) => {
+      return response;
+    })
+    .catch((err) => {
+      return err;
+    });
+};
+export const acceptApplication = (id) => {
+  return axios
+    .post(`application/updateStatus/accept/${id}`)
+    .then((response) => {
+      console.log(response);
+      return response;
+    })
+    .catch((err) => {
+      return err;
+    });
+};
+export const declineApplication = (id) => {
+  return axios
+    .post(`application/updateStatus/decline/${id}`)
+    .then((response) => {
+      return response;
+    })
+    .catch((err) => {
+      return err;
+    });
+};

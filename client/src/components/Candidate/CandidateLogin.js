@@ -5,7 +5,7 @@ class CandidateLogin extends Component {
   constructor() {
     super();
     this.state = {
-     toDashboard: false,
+      toDashboard: false,
 
       candidate__email: "",
       candidate__password: "",
@@ -27,11 +27,9 @@ class CandidateLogin extends Component {
     };
 
     CandidateLogin_f(user).then((res) => {
-     
       this.setState(() => ({
         toDashboard: true,
       }));
-
     });
   }
 

@@ -1,8 +1,5 @@
 import axios from "axios";
-const getInternsCandidate = (candidate) => {
-  const candidat = candidate.length;
-  return candidat === 0 && true;
-};
+
 const getVisibleInterns = (
   internships,
   internship_title,
@@ -35,7 +32,6 @@ export const internships_f = () => {
         console.log(response);
         console.log(getState());
         const internships = response.data.data;
-        const b = getInternsCandidate(response.data.data);
         const interns_filtered = getVisibleInterns(
           internships,
           getState().intern_filter.internship_title,

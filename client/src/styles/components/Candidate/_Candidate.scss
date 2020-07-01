@@ -1,34 +1,112 @@
+.body {
+  overflow-x: hidden;
+}
 .btn-group button {
-    background-color: white; /* Green background */
-    color: #F43478;
-    border: 1px solid white; /* Green border */
-    
-    padding: 10px 24px; /* Some padding */
-    cursor: pointer; /* Pointer/hand icon */
-    width: 150px; /* Set a width if needed */
-    display: block; /* Make the buttons appear below each other */
-  }
-  
-  .btn-group button:not(:last-child) {
-    border-bottom: none; /* Prevent double borders */
-  }
-  
-  /* Add a background color on hover */
-  .btn-group button:active {
-    background-color: #F43478;
-    color: white;
-  }
-  .jumbotron{
-    background-color: white;
-  }
-  .ester{
-    width: 150px;
-  }
-  .caseStyle{
-    border-radius: 50px;
-    background-color:  gray ;
-  }
-  #edit{
-    width:30px;
-    left: 100px;
-  }
+  background-color: white; /* Green background */
+  color: #f43478;
+  border: 1px solid white; /* Green border */
+
+  padding: 10px 24px; /* Some padding */
+  cursor: pointer; /* Pointer/hand icon */
+  width: 150px; /* Set a width if needed */
+  display: block; /* Make the buttons appear below each other */
+}
+
+.carreau {
+  position: relative;
+  left: 80px;
+  top: 80px;
+  margin-right: 300px;
+  border: solid #ff6456;
+}
+.jumbotron {
+  width: 101.7%;
+  position: relative;
+  padding-right: 100px;
+  background-color: white;
+}
+/* Add a background color on hover */
+.btn-group button:active {
+  background-color: #f43478;
+  color: white;
+}
+
+.ester {
+  width: 150px;
+}
+.caseStyle {
+  border-radius: 50px;
+  background-color: rgb(177, 166, 166);
+}
+#edit {
+  margin: 0;
+  position: relative;
+  width: 55px;
+  right: 119px;
+}
+.table {
+  top: 40px;
+}
+.text-left {
+  font-size: 2.14em;
+  position: relative;
+  margin-right: 0px;
+  display: block;
+  right: 47px;
+  bottom: 45px;
+}
+.text-left2 {
+  position: relative;
+  margin: 0;
+  right: 65px;
+  bottom: -20px;
+}
+#edit2 {
+  margin: 0;
+  bottom: 2px;
+  position: relative;
+  width: 30px;
+  right: 10px;
+}
+#edit3 {
+  cursor: pointer;
+  margin: 0;
+  bottom: 10px;
+  position: relative;
+  width: 30px;
+  left: 440px;
+}
+#editPlus {
+  cursor: pointer;
+
+  margin: 0;
+  top: 47px;
+  position: relative;
+  width: 33px;
+  left: 220px;
+}
+.updateRow {
+  position: relative;
+  padding-bottom: 20px;
+  padding-left: 50px;
+  padding-right: 50px;
+
+  padding-top: 50px;
+  margin-bottom: 20px;
+  border: 2px solid #ff6456;
+}
+
+.rowUpdate h1 {
+  z-index: 1000;
+  display: block;
+  text-align: center;
+  background-color: white;
+  position: relative;
+  top: 30px;
+  left: 20px;
+  margin-right: 174px;
+}
+.rose {
+  border: #ff6456;
+  background-color: #ff6456;
+}

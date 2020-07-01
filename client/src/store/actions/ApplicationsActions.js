@@ -1,8 +1,5 @@
 import axios from "axios";
-const getApplicationsCandidate = (candidate) => {
-  const candidat = candidate.length;
-  return candidat === 0 && true;
-};
+
 const getVisibleApps = (
   applications,
   application_status,
@@ -28,11 +25,10 @@ export const applications_f = (config) => {
       headers: { Authorization: `Bearer ${token}` },
     };
     axios
-      .get("/applications/ofCandidate", config)
+      .get("/application/ofCandidate", config)
 
       .then((response) => {
         console.log(response.data.data);
-        const candidat = getApplicationsCandidate(response.data.data);
 
         const applications = response.data.data;
         const apps_filtered = getVisibleApps(

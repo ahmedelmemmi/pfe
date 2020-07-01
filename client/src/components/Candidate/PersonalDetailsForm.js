@@ -1,19 +1,16 @@
 import React, { Component } from "react";
-import { CandidateRegister_f } from "./CandidateFunctions";
-import { Link, withRouter } from "react-router-dom";
-import { CandidateLogin_f } from "./CandidateFunctions";
-
-import { Redirect } from "react-router-dom";
-
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-
-class CandidateRegistration extends Component {
+import jwt_decode from "jwt-decode";
+import { getCandidate } from "./CandidateFunctions";
+import CandidateSkills from "./CandidateSkills";
+import CandidateExperience from "./CandidateExperience";
+import CandidateEducation from "./CandidateEducation";
+import "../../styles/components/Candidate/_Candidate.scss";
+import "../../styles/components/Candidate/_CandidateSkills.scss";
+class PersonalDetailsForm extends Component {
   constructor() {
     super();
     this.state = {
-      toDashboard: false,
-      candidate_candidate_email: "",
-      candidate_candidate_password: "",
+      candidate_email: "",
       candidate_name: "",
       candidate_service: "",
       candidate_gender: "",
@@ -23,20 +20,19 @@ class CandidateRegistration extends Component {
       candidate_phone: "",
       candidate_photo: "",
     };
-
-    this.onChange = this.onChange.bind(this);
-    this.onSubmit = this.onSubmit.bind(this);
   }
 
-  onChange(e) {
-    this.setState({ [e.target.name]: e.target.value });
-  }
-  onSubmit(e) {
+  handleInput = (e) => {
+    e.preventDefault();
+    const name = e.target.name;
+    const value = e.target.value;
+    this.setState({ [name]: value });
+  };
+  handleForm(e) {
     e.preventDefault();
 
     const newCandidate = {
       candidate_email: this.state.candidate_email,
-      candidate_password: this.state.candidate_password,
       candidate_name: this.state.candidate_name,
       candidate_service: this.state.candidate_service,
       candidate_gender: this.state.candidate_gender,
@@ -46,27 +42,19 @@ class CandidateRegistration extends Component {
       candidate_phone: this.state.candidate_phone,
       candidate_photo: this.state.candidate_photo,
     };
-
-    CandidateRegister_f(newCandidate).then((res) =>
-      CandidateLogin_f(newCandidate).then((res) => {
-        this.setState(() => ({
-          toDashboard: true,
-        }));
-      })
-    );
   }
 
   render() {
-    if (this.state.toDashboard === true) {
-      return <Redirect to="/candidate/profile" />;
-    }
     return (
-      <div className="container">
-        <div className="row">
-          <div className="col-md-6 mt-5 mx-auto">
-            <form noValidate onSubmit={this.onSubmit}>
-              <h1 className="h3 mb-3 font-weight-normal">
-                Register as a candidate
+      <div className="row">
+        <div className="col-10">
+          <form
+            className="border border-gray-500 w-1/2 my-5 rounded"
+            onSubmit={this.handleForm}
+          >
+            <div className="p-4">
+              <h1 className="text-lg border-b border-gray-500">
+                Update your personal details:
               </h1>
               <div className="form-group">
                 <label htmlFor="name">full name</label>
@@ -76,7 +64,7 @@ class CandidateRegistration extends Component {
                   name="candidate_name"
                   placeholder="Enter your full name"
                   value={this.state.candidate_name}
-                  onChange={this.onChange}
+                  onChange={this.handleInput}
                 />
               </div>
 
@@ -88,18 +76,7 @@ class CandidateRegistration extends Component {
                   name="candidate_email"
                   placeholder="Enter your email"
                   value={this.state.candidate_email}
-                  onChange={this.onChange}
-                />
-              </div>
-              <div className="form-group">
-                <label htmlFor="candidate_password">password</label>
-                <input
-                  type="password"
-                  className="form-control"
-                  name="candidate_password"
-                  placeholder="set your password"
-                  value={this.state.candidate_password}
-                  onChange={this.onChange}
+                  onChange={this.handleInput}
                 />
               </div>
               <div className="form-group">
@@ -109,17 +86,16 @@ class CandidateRegistration extends Component {
                   className="form-control"
                   name="candidate_service"
                   value={this.state.candidate_service}
-                  onChange={this.onChange}
+                  onChange={this.handleInput}
                 />
               </div>
               <div className="form-group">
                 <label htmlFor="name">gender</label>
                 <select
-                  type="text"
                   className="form-control"
                   name="candidate_gender"
                   value={this.state.value}
-                  onChange={this.onChange}
+                  onChange={this.handleInput}
                 >
                   <option value="female">female</option>
                   <option value="male">male</option>
@@ -133,7 +109,7 @@ class CandidateRegistration extends Component {
                   name="candidate_nb_experience"
                   placeholder="experiences number ?"
                   value={this.state.candidate_nb_experience}
-                  onChange={this.onChange}
+                  onChange={this.handleInput}
                 />
               </div>
               <div className="form-group">
@@ -144,7 +120,7 @@ class CandidateRegistration extends Component {
                   name="candidate_adress"
                   placeholder="Enter your first name"
                   value={this.state.candidate_adress}
-                  onChange={this.onChange}
+                  onChange={this.handleInput}
                 />
               </div>
               <div className="form-group">
@@ -155,11 +131,11 @@ class CandidateRegistration extends Component {
                   name="candidate_city"
                   placeholder="Enter your first name"
                   value={this.state.candidate_city}
-                  onChange={this.onChange}
+                  onChange={this.handleInput}
                 >
-                  <option value="Béja">Beja</option>
+                  <option value="Béja">Béja</option>
                   <option value="Bizerte">Bizerte</option>
-                  <option value="Gabès">Gabes</option>
+                  <option value="Gabès">Gabès</option>
                   <option value="Gafsa">Gafsa</option>
                   <option value="Jendouba">Jendouba</option>
                   <option value="Kairouan">Kairouan</option>
@@ -188,33 +164,21 @@ class CandidateRegistration extends Component {
                   name="candidate_phone"
                   placeholder="Enter your first name"
                   value={this.state.candidate_phone}
-                  onChange={this.onChange}
+                  onChange={this.handleInput}
                 />
               </div>
-              <div className="form-group">
-                <label htmlFor="name">candidate_photo</label>
+              <div className="mt-4">
                 <input
-                  type="text"
-                  className="form-control"
-                  name="candidate_photo"
-                  placeholder="Enter your first name"
-                  value={this.state.candidate_photo}
-                  onChange={this.onChange}
+                  type="submit"
+                  value="Update"
+                  className="mt-1 p-2 border border-gray-400 rounded cursor-pointer bg-purple-600 "
                 />
               </div>
-              <button
-                type="submit"
-                className="btn btn-lg btn-primary btn-block"
-              >
-                Register!
-              </button>
-            </form>
-          </div>
+            </div>
+          </form>
         </div>
-        <div></div>
       </div>
     );
   }
 }
-
-export default CandidateRegistration;
+export default PersonalDetailsForm;

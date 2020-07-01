@@ -1,40 +1,40 @@
 .flex-container {
-    display: flex;
-    justify-content: center;
-  }
-  #Post_btn {
-    position: relative;
-    overflow: visible;
-    margin-top: 5%;
-    left: 80px;
-    width: 200px;
-    height: 50px;
-    border-radius: 40px;
-    background-image: linear-gradient(#F43478 , #FF6456);
-    color: white;
-    font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+  justify-content: center;
 }
-img{
-    width: 500px;
+#Post_btn {
+  position: relative;
+  overflow: visible;
+  margin-top: 5%;
+  left: 80px;
+  width: 200px;
+  height: 50px;
+  border-radius: 40px;
+  background-image: linear-gradient(#f43478, #ff6456);
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+}
+img {
+  width: 500px;
 }
 
-#work_photo{
-    position: relative;
-    top: 70px;
-    right: -150px;
-    width: 78%;
+#work_photo {
+  position: relative;
+  top: 70px;
+  right: -150px;
+  width: 78%;
 }
-#Talent{
-    position: relative;
-    top: 300px;
+#Talent {
+  position: relative;
+  top: 300px;
 }
-.row{
-    position: relative; 
-    margin-bottom: 80px ;
+.row {
+  position: relative;
+  margin-bottom: 80px;
 }
-#talent_title{
-    color: #F43478;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 40px;
-    font-weight: bold;
+#talent_title {
+  color: #f43478;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 40px;
+  font-weight: bold;
 }

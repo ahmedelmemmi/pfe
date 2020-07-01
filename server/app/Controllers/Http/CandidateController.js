@@ -70,32 +70,39 @@ class CandidateController {
     };
     return response.json(res);
   }
-  async get_all_candidates() {
-    return await Database.table("candidates").select("*");
+  async all({ response }) {
+    const candidates = await Candidate.all();
+    response.status(200).json({
+      message: "all_internships",
+      data: candidates,
+    });
   }
-  // async ofCompany({ response, auth }) {
-  //   const aa = await auth.authenticator("company").getUser();
-  //   const ide = aa.id;
+  async ofCompany({ response, auth }) {
+    const aa = await auth.authenticator("company").getUser();
+    const ide = aa.id;
+    // const posted = await Internship.create({
+    //   internship_title: "in progress",
+    //   internship_field: "vffvrvf",
+    //   internship_description: "rrrrr",
+    //   internship_type: "fff",
+    // });
+    const intern = await Internship.query()
+      .where("company_id", "=", ide)
+      .with("applications.candidate")
+      .fetch();
 
-  //   const intern = await Internship.query()
-  //     .where("company_id", "=", ide)
-  //     .with("applications.candidate")
-  //     .fetch();
+    console.log(aa);
+    // const apps = await Application.query()
+    //   .where("candidate_id", "=", ide)
+    //   .with("internship")
+    //   .fetch();
+    response.status(200).json({
+      message: "asbaa",
+      data: intern,
+    });
 
-  //   console.log(aa);
-
-  //   response.status(200).json({
-  //     message: "asbaa",
-  //     data: intern,
-  //   });
-
-  // }
+    // const apps = await auth.candidate.applications().all();
+  }
 }
 
 module.exports = CandidateController;
-// const posted = await Internship.create({
-//   internship_title: "in progress",
-//   internship_field: "vffvrvf",
-//   internship_description: "rrrrr",
-//   internship_type: "fff",
-// });

@@ -7,16 +7,16 @@ class CompanyRegistration extends Component {
   constructor() {
     super();
     this.state = {
-     toDashboard: false,
-     company_email: "",
-     company_password: "",
-     company_name: "",
-     company_taxcode: "",
-     company_phone: "",
-     company_adress: "",
-     company_field: "",
-     company_city: "",
-     company_photo: "",
+      toDashboard: false,
+      company_email: "",
+      company_password: "",
+      company_name: "",
+      company_taxcode: "",
+      company_phone: "",
+      company_adress: "",
+      company_field: "",
+      company_city: "",
+      company_photo: "",
     };
 
     this.onChange = this.onChange.bind(this);
@@ -25,7 +25,6 @@ class CompanyRegistration extends Component {
 
   onChange(e) {
     this.setState({ [e.target.name]: e.target.value });
-    
   }
   onSubmit(e) {
     e.preventDefault();
@@ -39,16 +38,14 @@ class CompanyRegistration extends Component {
       company_adress: this.state.company_adress,
       company_field: this.state.company_field,
       company_city: this.state.company_city,
-      company_photo: this.state.company_photo
+      company_photo: this.state.company_photo,
     };
 
     CompanyRegister_f(newCompany).then((res) =>
-    
       CompanyLogin_f(newCompany).then((res) => {
         this.setState(() => ({
           toDashboard: true,
         }));
-        
       })
     );
   }
@@ -62,7 +59,9 @@ class CompanyRegistration extends Component {
         <div className="row">
           <div className="col-md-6 mt-5 mx-auto">
             <form noValidate onSubmit={this.onSubmit}>
-              <h1 className="h3 mb-3 font-weight-normal">Register as a company</h1>
+              <h1 className="h3 mb-3 font-weight-normal">
+                Register as a company
+              </h1>
               <div className="form-group">
                 <label htmlFor="name">Full Name</label>
                 <input
@@ -115,7 +114,8 @@ class CompanyRegistration extends Component {
                   name="company_adress"
                   placeholder="Enter your company adress"
                   value={this.state.company_adress}
-                  onChange={this.onChange}/> 
+                  onChange={this.onChange}
+                />
               </div>
               <div className="form-group">
                 <label htmlFor="name">Field</label>
@@ -137,28 +137,28 @@ class CompanyRegistration extends Component {
                   value={this.state.company_city}
                   onChange={this.onChange}
                 >
-                                    <option value="Béja">Béja</option>
-                                    <option value="Bizerte">Bizerte</option>
-                                    <option value="Gabès">Gabès</option>
-                                    <option value="Gafsa">Gafsa</option>
-                                    <option value="Jendouba">Jendouba</option>
-                                    <option value="Kairouan">Kairouan</option>
-                                    <option value="Kasserine">Kasserine</option>
-                                    <option value="Kébili">Kébili</option>
-                                    <option value="Kef">Kef</option>
-                                    <option value="Mahdia">Mahdia</option>
-                                    <option value="Médenine">Médenine</option>
-                                    <option value="Monastir">Monastir</option>
-                                    <option value="Nabeul">Nabeul</option>
-                                    <option value="Sfax">Sfax</option>
-                                    <option value="Sidi Bouzid">Sidi Bouzid</option>
-                                    <option value="Siliana">Siliana</option>
-                                    <option value="Sousse">Sousse</option>
-                                    <option value="Tataouine">Tataouine</option>
-                                    <option value="Tozeur">Tozeur</option>
-                                    <option value="Tunis">Tunis</option>
-                                    <option value="Zaghouan">Zaghouan</option>
-                  </select>
+                  <option value="Béja">Béja</option>
+                  <option value="Bizerte">Bizerte</option>
+                  <option value="Gabès">Gabès</option>
+                  <option value="Gafsa">Gafsa</option>
+                  <option value="Jendouba">Jendouba</option>
+                  <option value="Kairouan">Kairouan</option>
+                  <option value="Kasserine">Kasserine</option>
+                  <option value="Kébili">Kébili</option>
+                  <option value="Kef">Kef</option>
+                  <option value="Mahdia">Mahdia</option>
+                  <option value="Médenine">Médenine</option>
+                  <option value="Monastir">Monastir</option>
+                  <option value="Nabeul">Nabeul</option>
+                  <option value="Sfax">Sfax</option>
+                  <option value="Sidi Bouzid">Sidi Bouzid</option>
+                  <option value="Siliana">Siliana</option>
+                  <option value="Sousse">Sousse</option>
+                  <option value="Tataouine">Tataouine</option>
+                  <option value="Tozeur">Tozeur</option>
+                  <option value="Tunis">Tunis</option>
+                  <option value="Zaghouan">Zaghouan</option>
+                </select>
               </div>
               <div className="form-group">
                 <label htmlFor="name">company_phone</label>

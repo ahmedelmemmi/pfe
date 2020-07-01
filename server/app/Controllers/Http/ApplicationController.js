@@ -42,8 +42,11 @@ class ApplicationController {
     const inter = await Internship.find(params.intern_id);
 
     const posted = await Application.create({
-      app_status: "in progress",
+      app_status: "In progress",
       app_comments: "",
+      company_message: "",
+      candidate_message:
+        "Your application has been sent. Please wait for the company response",
     });
     console.log(cand);
     await cand.applications().save(posted);
@@ -75,7 +78,7 @@ class ApplicationController {
     const app = await Application.find(params.id);
 
     await app.delete();
-    return response.send({ message: "omok has been deleted" });
+    return response.send({ message: " has been deleted" });
   }
 
   async update({ response, request, session, params }) {
@@ -86,7 +89,62 @@ class ApplicationController {
 
     await app.save();
 
-    return response.send({ message: "omok has been updated" });
+    return response.send({ message: " has been updated" });
+  }
+  async updateComments({ response, request, session, params }) {
+    const app = await Application.find(params.id);
+
+    app.app_comments = request.all().comments;
+
+    await app.save();
+
+    return response.send({ message: " has been updated" });
+  }
+  async accept({ response, request, session, params }) {
+    const app = await Application.find(params.id);
+
+    const status = app.app_status;
+    if (status === "In progress") {
+      app.app_status = "Accepted";
+      app.company_message =
+        "You have accepted the application. Now you have to email the candidate the interview date";
+      app.candidate_message =
+        "Your application has been accepted. A precise interview date will be communicated to you soon";
+
+      await app.save();
+    } else if (status === "Accepted") {
+      app.app_status = "Confirmed";
+      app.candidate_message =
+        "CONGRATS! You are officialy an traineer for this internship";
+      app.company_message = "You have officialy accepted the application";
+
+      await app.save();
+    } else if (status === "Confirmed") {
+      app.company_message = "You have already accepted the application!!!";
+
+      await app.save();
+    } else if (status === "Declined") {
+      app.company_message = "";
+
+      await app.save();
+    } else {
+      console.log("ereeeeur");
+    }
+
+    return response.send({ message: " has been updated" });
+  }
+  async decline({ response, request, session, params }) {
+    const app = await Application.find(params.id);
+
+    const status = app.app_status;
+
+    app.app_status = "Declined";
+    app.company_message = "You have declined the application";
+    app.candidate_message = "Your application has been declined. Hard luck.";
+
+    await app.save();
+
+    return response.send({ message: " has been updated" });
   }
 }
 

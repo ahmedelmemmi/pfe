@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 import { CompanyLogin_f } from "./CompanyFunctions";
-import { Redirect,withRouter } from "react-router-dom";
+import { Redirect, withRouter } from "react-router-dom";
 class CompanyLogin extends Component {
   constructor() {
     super();
     this.state = {
-      errors:{},
+      errors: {},
       company_email: "",
-      company_password: ""
+      company_password: "",
     };
 
     this.onChange = this.onChange.bind(this);
@@ -26,14 +26,13 @@ class CompanyLogin extends Component {
     };
 
     CompanyLogin_f(user).then((res) => {
-      if (res){
+      if (res) {
         this.props.history.push("/company/profile");
-     }
+      }
     });
   }
 
   render() {
-
     return (
       <div className="container">
         <div className="row">

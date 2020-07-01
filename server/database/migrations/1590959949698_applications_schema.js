@@ -7,8 +7,10 @@ class ApplicationsSchema extends Schema {
   up() {
     this.create("applications", (table) => {
       table.increments();
-      table.string("app_status").notNullable();
-      table.string("app_comments").notNullable();
+      table.string("app_status");
+      table.string("app_comments");
+      table.string("candidate_message");
+      table.string("company_message");
       table
         .integer("candidate_id")
         .unsigned()
@@ -18,7 +20,7 @@ class ApplicationsSchema extends Schema {
         .integer("internship_id")
         .unsigned()
         .references("id")
-        .inTable("internships")
+        .inTable("internships");
       table.timestamps();
     });
   }
