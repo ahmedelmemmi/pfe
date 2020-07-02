@@ -4,6 +4,7 @@ import { Link, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { candidates_f } from "../../store/actions/CandidatesActions";
 import { filter_candidates } from "../../store/actions/Filter_candidatesActions";
+import '../../styles/components/Company/_CompanyCandidates.scss'
 class CompanyCandidates extends Component {
   constructor(props) {
     super(props);
@@ -33,9 +34,10 @@ class CompanyCandidates extends Component {
   render() {
     console.log(this.props);
     return (
-      <div>
+      <div className="row">
         {/* Form */}
-        <div className="col-md-6 mt-5 mx-auto">
+        <div className="col-md-3 mt-5 mx-auto">
+        <div className="position-fixed">
           <form noValidate onSubmit={this.onSubmit}>
             <h1 className="h3 mb-3 font-weight-normal">Filter :</h1>
 
@@ -63,35 +65,41 @@ class CompanyCandidates extends Component {
             </div>
 
             <button type="submit" className="btn btn-lg btn-primary btn-block">
-              Sign in
+              Search
             </button>
           </form>
+          </div>
         </div>
         {/* List */}
-
+        <div className="col-md-6 mt-5 mx-auto">
         <p>Please add your application to get started!</p>
         {this.props.candidates.map((candidate) => (
-          <div>
+          <div className="container" id="box_opp2">
+            <div className="d-flex justify-content-start">
             <p>
               {" "}
-              <h3> {candidate.candidate.candidate_name}</h3> ,
-              {candidate.candidate.candidate_city}{" "}
+              <h3> {candidate.candidate.candidate_name},{candidate.candidate.candidate_city}{" "}</h3> 
+              
             </p>
-            <p> {candidate.candidate.candidate_service} </p>
-            <p> {candidate.candidate.candidate_nb_experience} </p>
-
+            </div>
+            
+            <p> Service: {candidate.candidate.candidate_service} </p>
+            <p> Number of experiences: {candidate.candidate.candidate_nb_experience} </p>
+            <div className="row justify-content-end">
             <Link
               to={"/company/application/" + candidate.id}
               activeClassName="is-active"
               exact={true}
             >
-              <button>See application details</button>
+              <button id="detailBtn">See application details</button>
             </Link>
             <Link to="/" activeClassName="is-active" exact={true}>
-              <button>See Profil</button>
+              <button id="profilBtn">See Profil</button>
             </Link>
+            </div>
           </div>
         ))}
+      </div>
       </div>
     );
   }

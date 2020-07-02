@@ -35,8 +35,8 @@ class AllCandidates extends Component {
   render() {
     console.log(this.props);
     return (
-      <div>
-        <div className="col-md-6 mt-5 mx-auto">
+      <div className="row">
+        <div className="col-md-3 mt-5 mx-auto">
           <form noValidate onSubmit={this.onSubmit}>
             <h1 className="h3 mb-3 font-weight-normal">Filter :</h1>
 
@@ -92,21 +92,21 @@ class AllCandidates extends Component {
             </div>
 
             <button type="submit" className="btn btn-lg btn-primary btn-block">
-              Sign in
+              Search
             </button>
           </form>
         </div>
         {/* List */}
-
+        <div className="col-md-6 mt-5 mx-auto">
         <p>Please add your application to get started!</p>
         {this.props.candidates.map((candidate) => (
-          <div>
+          <div className="container" id="box_opp2">
             <p>
               {" "}
-              <h3> {candidate.candidate_name}</h3> ,{candidate.candidate_city}{" "}
+              <h3> {candidate.candidate_name} ,{candidate.candidate_city}{" "}</h3>
             </p>
-            <p> {candidate.candidate_service} </p>
-            <p> {candidate.candidate_nb_experience} </p>
+            <p> Service: {candidate.candidate_service} </p>
+            <p> Number of experiences: {candidate.candidate_nb_experience} </p>
 
             {/*  <Link
               to={"/company/application/" + candidate.id}
@@ -120,6 +120,7 @@ class AllCandidates extends Component {
     </Link> */}
           </div>
         ))}
+      </div>
       </div>
     );
   }
