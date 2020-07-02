@@ -2,16 +2,16 @@ import React, { Component } from "react";
 
 import "../../src/styles/components/Home/_Dialog.scss";
 
-class Dialog extends Component {
+class Dialog2 extends Component {
   render() {
     let dialog = (
       <div className="dialogStyles">
-        <button
-          className="dialogCloseButtonStyles"
+        <img
+          className="dialogOkayButtonStyles"
           onClick={this.props.onClose}
-        >
-          x
-        </button>
+          src={require("../../src/logos/tick.png")}
+          alt=""
+        />
 
         <div>{this.props.children}</div>
       </div>
@@ -24,4 +24,4 @@ class Dialog extends Component {
   }
 }
 
-export default Dialog;
+export default Dialog2;

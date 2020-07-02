@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { CandidateLogin_f } from "./CandidateFunctions";
 import { Redirect, withRouter } from "react-router-dom";
+import Dialog from "../Dialog";
 class CandidateLogin extends Component {
   constructor() {
     super();
@@ -9,8 +10,8 @@ class CandidateLogin extends Component {
 
       candidate__email: "",
       candidate__password: "",
+      error: false,
     };
-
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
   }
@@ -27,9 +28,17 @@ class CandidateLogin extends Component {
     };
 
     CandidateLogin_f(user).then((res) => {
-      this.setState(() => ({
-        toDashboard: true,
-      }));
+      if (res) {
+        this.setState(() => ({
+          toDashboard: true,
+        }));
+      } else
+        this.setState((prevState) => {
+          return {
+            ...prevState,
+            error: true,
+          };
+        });
     });
   }
 
@@ -40,6 +49,21 @@ class CandidateLogin extends Component {
 
     return (
       <div className="container">
+        <div className="">
+          <Dialog
+            isOpen={this.state.error}
+            onClose={(e) =>
+              this.setState((prevState) => {
+                return {
+                  ...prevState,
+                  error: false,
+                };
+              })
+            }
+          >
+            Email and password are incorrect! Please try again.
+          </Dialog>
+        </div>
         <div className="row">
           <div className="col-md-6 mt-5 mx-auto">
             <form noValidate onSubmit={this.onSubmit}>

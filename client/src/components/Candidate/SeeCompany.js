@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import jwt_decode from "jwt-decode";
-import { getCompany } from "./CompanyFunctions";
+import { SeeCompany } from "./CandidateFunctions";
 import "../../styles/components/Company/_Company.scss";
 
 class CompanyProfile extends Component {
@@ -19,27 +19,20 @@ class CompanyProfile extends Component {
     };
   }
   componentDidMount() {
-    const token = localStorage.usertoken;
-    console.log(token);
-    const decoded = jwt_decode(token);
-    console.log(decoded);
-    getCompany(decoded.uid)
-      .then((res) => {
-        console.log(res);
-        this.setState({
-          company_email: res.data.company_email,
-          company_name: res.data.company_name,
-          company_taxcode: res.data.company_taxcode,
-          company_phone: res.data.company_phone,
-          company_adress: res.data.company_adress,
-          company_field: res.data.company_field,
-          company_city: res.data.company_city,
-          company_photo: res.data.company_photo,
-        });
-      })
-      .catch((err) => {
-        console.log(err);
+    const id = this.props.match.params.id;
+    SeeCompany(id).then((res) => {
+      console.log(res);
+      this.setState({
+        company_email: res.data.company_email,
+        company_name: res.data.company_name,
+        company_taxcode: res.data.company_taxcode,
+        company_phone: res.data.company_phone,
+        company_adress: res.data.company_adress,
+        company_field: res.data.company_field,
+        company_city: res.data.company_city,
+        company_photo: res.data.company_photo,
       });
+    });
   }
   render() {
     return (
@@ -48,8 +41,12 @@ class CompanyProfile extends Component {
           <div className="col-sm-8 mx-auto">
             <img src={require("../../logos/facebook.png")} id="editF" alt="" />
             <h1 className="text-left">
-              DEVAGNOS{" "}
-              <img id="location" src={require("../../logos/pin.png")} alt="" />{" "}
+              {this.state.company_name}
+              <img
+                id="location"
+                src={require("../../logos/pin.png")}
+                alt=""
+              />{" "}
               <h4> Monastir</h4>{" "}
             </h1>
           </div>

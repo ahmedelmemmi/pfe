@@ -4,6 +4,7 @@ import { saveComments_f } from "./CompanyFunctions";
 import { acceptApplication } from "./CompanyFunctions";
 import { declineApplication } from "./CompanyFunctions";
 import { Link, withRouter } from "react-router-dom";
+import "../../styles/components/Application/_Application2.scss";
 
 class CandidateApplication extends Component {
   constructor(props) {
@@ -62,48 +63,76 @@ class CandidateApplication extends Component {
       <div>
         {/* maquette : application details page for company */}
 
-        <h3>{this.state.application.company_message}</h3>
-        <p>
+        <h3 className="alertCompany">
+          {this.state.application.company_message}
+        </h3>
+        <div className="col-md-3 btn-group">
+          <div className="">
+            <button
+              className="row b"
+              onClick={(e) => {
+                acceptApplication(this.state.application.id).then((res) => {
+                  if (res) {
+                    window.location.reload(false);
+                  }
+                });
+              }}
+            >
+              <img id="click" src={require("../../logos/close2.png")} alt="" />
+              Accept
+            </button>
+
+            <button
+              className="row b"
+              onClick={(e) => {
+                declineApplication(this.state.application.id).then((res) => {
+                  if (res) {
+                    window.location.reload(false);
+                  }
+                });
+              }}
+            >
+              <img id="click" src={require("../../logos/close2.png")} alt="" />
+              Decline
+            </button>
+          </div>
+        </div>
+
+        <div className="col-md-8 application">
           {" "}
-          <h2>{this.state.candidate.candidate_name} </h2> ,
-          {this.state.candidate.candidate_service}
-        </p>
+          <div className="col-4">
+            <img id="company" src={require("../../logos/user.png")} alt="" />
+          </div>
+          <h2>
+            {this.state.candidate.candidate_name} <h4> , </h4>
+            <span className="co">{this.state.candidate.candidate_service}</span>
+            <h4> has applied to : {this.state.internship.internship_name}</h4>
+          </h2>
+          <br />
+          <h2>
+            {" "}
+            <h4>STATUS : </h4>
+            {this.state.application.app_status}
+          </h2>
+          <br />
+          <div className="para">
+            <p>applied at : {this.state.application.created_at}</p>
 
-        <br />
-        <p>
-          applied for : <h3> {this.state.internship.internship_title}</h3>{" "}
-          {this.state.application.created_at}
-        </p>
-        <p> Application status : {this.state.application.app_status}</p>
-
-        <button
-          onClick={(e) => {
-            acceptApplication(this.state.application.id).then((res) => {
-              if (res) {
-                window.location.reload(false);
-              }
-            });
-          }}
-        >
-          Accept
-        </button>
-
-        <button
-          onClick={(e) => {
-            declineApplication(this.state.application.id).then((res) => {
-              if (res) {
-                window.location.reload(false);
-              }
-            });
-          }}
-        >
-          Decline
-        </button>
-        <br />
-        <p>applied at : {this.state.application.created_at}</p>
+            <p>
+              {" "}
+              {this.state.internship.internship_duration} |{" "}
+              {this.state.internship.internship_type}
+            </p>
+            <p>
+              {" "}
+              <b> Description </b> :{" "}
+              {this.state.internship.internship_description}
+            </p>
+          </div>
+        </div>
 
         {/* comments form */}
-        <div className="col-md-6 mt-5 mx-auto">
+        <div className="col-md-4 comments mt-5 mx-auto">
           <form noValidate onSubmit={this.onSubmit}>
             <div className="form-group">
               <label htmlFor="comments">Add your comments : </label>

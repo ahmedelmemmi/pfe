@@ -21,11 +21,19 @@ Route.group(() => {
   Route.post("register", "CandidateController.register");
   Route.get("candidate/:id", "CandidateController.show");
   Route.get("/ofCompany", "CandidateController.ofCompany");
+  Route.get("/company/company/:id", "CompanyController.show");
+
+  Route.post(
+    "application/application/delete/:id",
+    "ApplicationController.delete"
+  );
 }).prefix("candidate");
 Route.group(() => {
   Route.post("login", "CompanyController.login");
   Route.post("register", "CompanyController.register");
   Route.get("/company/:id", "CompanyController.show");
+  Route.get("/candidate/candidate/:id", "CompanyController.show");
+
   Route.get("getCompanies", "CompanyController.get_all_companies");
   Route.get("/candidatesPage/candidate", "CandidateController.all");
 

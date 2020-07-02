@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import CompanyRegistration from "./CompanyRegistration";
 import CompanyLogin from "./CompanyLogin";
-import '../../styles/components/Company/_CompanyRegistration.scss'
+import "../../styles/components/Company/_CompanyRegistration.scss";
 class CompanyRegister extends Component {
   constructor(props) {
     super(props);
@@ -36,8 +36,13 @@ class CompanyRegister extends Component {
               </div>
               <div className="col-md-6 mt-5 mx-auto">
                 <div className="form-inline line">
-                <h5>Already have an account?</h5>
-                <button onClick={this.handleToggleVisibility} className="loginBtn">Login </button>
+                  <h5>Already have an account?</h5>
+                  <button
+                    onClick={this.handleToggleVisibility}
+                    className="loginBtn"
+                  >
+                    Login{" "}
+                  </button>
                 </div>
               </div>
             </div>

@@ -1,14 +1,21 @@
 import React, { Component } from "react";
 import { GetApplication } from "./CandidateFunctions";
+import "../../styles/components/Application/_Application1.scss";
+import { deleteApplication } from "./ApplicationsFunctions";
+import Dialog2 from "../Dialog2";
+import { Link, withRouter } from "react-router-dom";
+
 class CandidateApplication extends Component {
   constructor(props) {
     super(props);
     this.componentDidMount = this.componentDidMount.bind(this);
+    this.deleteApplication_f = this.deleteApplication_f.bind(this);
     this.state = {
       application: {},
       candidate: {},
       internship: {},
       company: {},
+      error: false,
     };
   }
   componentDidMount(props) {
@@ -19,7 +26,8 @@ class CandidateApplication extends Component {
       const inter = res.data.internship;
       const company = res.data.company;
 
-      this.setState(() => ({
+      this.setState((prevState) => ({
+        ...prevState,
         application: app,
         candidate: cand,
         internship: inter,
@@ -28,40 +36,99 @@ class CandidateApplication extends Component {
       console.log(this.state);
     });
   }
-
+  deleteApplication_f(id) {
+    deleteApplication(id).then((res) => {
+      this.setState((prevState) => {
+        return {
+          ...prevState,
+          error: true,
+        };
+      });
+    });
+  }
   render() {
     return (
-      <div>
+      <div className="row">
+        <div className="">
+          <Dialog2
+            isOpen={this.state.error}
+            onClose={(e) => this.props.history.push("/candidate/applications")}
+          >
+            Your application has been deleted{" "}
+          </Dialog2>
+        </div>
         {/*  application details page for candidate */}
-        <h3 className="notif">{this.state.application.candidate_message}</h3>
-        <h2>
-          {this.state.internship.internship_title} at{" "}
-          {this.state.company.company_name}
-        </h2>
-        <br />
-        <p> {this.state.application.app_status}</p>
-        <br />
-        <p>applied at : {this.state.application.created_at}</p>
-
-        <button
-          onClick={(e) => {
-            this.deleteApplication(this.state.application);
-          }}
-        >
-          Cancel application
-        </button>
-        <p> {this.state.application.app_comments}</p>
-        <br />
-        <h4>
-          {this.state.internship.internship_title} at{" "}
-          {this.state.company.company_name} , {this.state.company.company_city}
-        </h4>
-        <p>
+        <h3 className="alertA">{this.state.application.candidate_message}</h3>
+        <div className="col-md-2 btn2-group">
+          <div className="">
+            <button
+              className="row b"
+              onClick={(e) => {
+                this.deleteApplication_f(this.state.application.id);
+              }}
+            >
+              {" "}
+              <img id="click" src={require("../../logos/close2.png")} alt="" />
+              Cancel application
+            </button>
+            <Link
+              to={"/candidate/company/" + this.state.company.id}
+              activeClassName="is-active"
+              exact={true}
+            >
+              <button className="row b">
+                {" "}
+                <img
+                  id="click"
+                  src={require("../../logos/close2.png")}
+                  alt=""
+                />
+                See company profile
+              </button>{" "}
+            </Link>
+          </div>
+        </div>
+        <div className="col-md-8 application1">
           {" "}
-          {this.state.internship.internship_duration} |{" "}
-          {this.state.internship.internship_type}
-        </p>
-        <p> Description : {this.state.internship.internship_description}</p>
+          <div className="col-4">
+            <img
+              id="company"
+              src={require("../../logos/facebook.png")}
+              alt=""
+            />
+          </div>
+          <h2>
+            {this.state.internship.internship_title} <h4> at </h4>
+            <span className="co">{this.state.company.company_name}</span>
+            <img
+              id="location8"
+              src={require("../../logos/pin.png")}
+              alt=""
+            />{" "}
+            <h4> {this.state.company.company_city}</h4>
+          </h2>
+          <br />
+          <h2>
+            {" "}
+            <h4>STATUS : </h4>
+            {this.state.application.app_status}
+          </h2>
+          <br />
+          <div className="para">
+            <p>applied at : {this.state.application.created_at}</p>
+
+            <p>
+              {" "}
+              {this.state.internship.internship_duration} |{" "}
+              {this.state.internship.internship_type}
+            </p>
+            <p>
+              {" "}
+              <b> Description </b> :{" "}
+              {this.state.internship.internship_description}
+            </p>
+          </div>
+        </div>
       </div>
     );
   }

@@ -1,0 +1,91 @@
+.application1 {
+  position: relative;
+  border: 1px solid black;
+  border-radius: 3.5px;
+  margin: 200px 0 20px 0;
+  box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3);
+  transition: box-shadow 0.3s;
+  left: 55px;
+  bottom: 98px;
+  height: 400px;
+}
+.btn2-group button {
+  background-color: white; /* Green background */
+  color: #ee1e67;
+  border: hidden;
+  border-bottom: 2px solid #ee1e67; /* Green border */
+
+  padding: 10px;
+  font-weight: bold;
+  cursor: pointer; /* Pointer/hand icon */
+  width: 220px; /* Set a width if needed */
+  display: block; /* Make the buttons appear below each other */
+}
+
+.btn2-group button:hover {
+  background-color: #f43478;
+  color: white;
+}
+#click {
+  position: relative;
+  width: 20px;
+  margin-right: 10px;
+}
+#location8 {
+  top: 9px;
+  position: relative;
+  width: 25px;
+  height: 25px;
+  margin-bottom: 15px;
+  margin-left: 22px;
+}
+#company {
+  position: relative;
+  size: 10px;
+  bottom: 15px;
+  right: 50px;
+}
+.btn2-group {
+  position: relative;
+  top: 100px;
+  left: 3px;
+}
+.b {
+  margin: 15px;
+}
+.b2 {
+  margin: 15px;
+}
+.application1 h2 {
+  display: inline-flex;
+  position: relative;
+  bottom: 180px;
+  left: 200px;
+}
+.application1 h4 {
+  margin: 8px;
+}
+
+.para {
+  left: 40px;
+  position: relative;
+  bottom: 150px;
+}
+.co {
+  text-decoration: underline;
+  cursor: pointer; /* Pointer/hand icon */
+}
+.alertA {
+  z-index: 999;
+  height: 55px;
+  display: block;
+  padding: 10px;
+  background: #49b0e7;
+  font-family: "Mukta Mahee", sans-serif;
+  font-size: 25px;
+  text-align: center;
+  color: #fff;
+  border-radius: 9px;
+  width: 115%;
+  position: fixed;
+}

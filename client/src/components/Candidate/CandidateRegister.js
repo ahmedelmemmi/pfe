@@ -40,7 +40,12 @@ class CandidateRegister extends Component {
               <div className="col-md-6 mt-5 mx-auto">
                 <div className="form-inline line">
                   <h5>Already have an account?</h5>
-                  <button onClick={this.handleToggleVisibility} className="loginBtn">Login </button>
+                  <button
+                    onClick={this.handleToggleVisibility}
+                    className="loginBtn"
+                  >
+                    Login{" "}
+                  </button>
                 </div>
               </div>
             </div>

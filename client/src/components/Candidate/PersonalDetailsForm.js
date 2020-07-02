@@ -18,7 +18,6 @@ class PersonalDetailsForm extends Component {
       candidate_adress: "",
       candidate_city: "",
       candidate_phone: "",
-      candidate_photo: "",
     };
   }
 
@@ -40,7 +39,6 @@ class PersonalDetailsForm extends Component {
       candidate_adress: this.state.candidate_adress,
       candidate_city: this.state.candidate_city,
       candidate_phone: this.state.candidate_phone,
-      candidate_photo: this.state.candidate_photo,
     };
   }
 

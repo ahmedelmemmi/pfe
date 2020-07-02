@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { CompanyLogin_f } from "./CompanyFunctions";
 import { Redirect, withRouter } from "react-router-dom";
+import Dialog from "../Dialog";
 class CompanyLogin extends Component {
   constructor() {
     super();
@@ -8,6 +9,7 @@ class CompanyLogin extends Component {
       errors: {},
       company_email: "",
       company_password: "",
+      error: false,
     };
 
     this.onChange = this.onChange.bind(this);
@@ -28,13 +30,34 @@ class CompanyLogin extends Component {
     CompanyLogin_f(user).then((res) => {
       if (res) {
         this.props.history.push("/company/profile");
-      }
+      } else
+        this.setState((prevState) => {
+          return {
+            ...prevState,
+            error: true,
+          };
+        });
     });
   }
 
   render() {
     return (
       <div className="container">
+        <div className="">
+          <Dialog
+            isOpen={this.state.error}
+            onClose={(e) =>
+              this.setState((prevState) => {
+                return {
+                  ...prevState,
+                  error: false,
+                };
+              })
+            }
+          >
+            Email and password are incorrect! Please try again.
+          </Dialog>
+        </div>
         <div className="row">
           <div className="col-md-6 mt-5 mx-auto">
             <form noValidate onSubmit={this.onSubmit}>

@@ -83,3 +83,13 @@ export const declineApplication = (id) => {
       return err;
     });
 };
+export const SeeCandidate = (id) => {
+  return axios
+    .get(`company/candidate/candidate/${id}`)
+    .then((response) => {
+      return response;
+    })
+    .catch((err) => {
+      return err;
+    });
+};

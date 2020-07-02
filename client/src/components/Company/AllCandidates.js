@@ -98,17 +98,22 @@ class AllCandidates extends Component {
         </div>
         {/* List */}
         <div className="col-md-6 mt-5 mx-auto">
-        <p>Please add your application to get started!</p>
-        {this.props.candidates.map((candidate) => (
-          <div className="container" id="box_opp2">
-            <p>
-              {" "}
-              <h3> {candidate.candidate_name} ,{candidate.candidate_city}{" "}</h3>
-            </p>
-            <p> Service: {candidate.candidate_service} </p>
-            <p> Number of experiences: {candidate.candidate_nb_experience} </p>
+          {this.props.candidates.map((candidate) => (
+            <div className="container" id="box_opp2">
+              <p>
+                {" "}
+                <h3>
+                  {" "}
+                  {candidate.candidate_name} ,{candidate.candidate_city}{" "}
+                </h3>
+              </p>
+              <p> Service: {candidate.candidate_service} </p>
+              <p>
+                {" "}
+                Number of experiences: {candidate.candidate_nb_experience}{" "}
+              </p>
 
-            {/*  <Link
+              {/*  <Link
               to={"/company/application/" + candidate.id}
               activeClassName="is-active"
               exact={true}
@@ -118,9 +123,9 @@ class AllCandidates extends Component {
             <Link to="/" activeClassName="is-active" exact={true}>
               <button>See Profil</button>
     </Link> */}
-          </div>
-        ))}
-      </div>
+            </div>
+          ))}
+        </div>
       </div>
     );
   }

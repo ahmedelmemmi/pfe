@@ -183,31 +183,44 @@ class CandidateInternships extends Component {
             <div className="container" id="box_opp">
               <div className="row">
                 <div className="col-4">
-                  <img src={require("../../logos/facebook.png")} alt="" />
+                  <img
+                    src={require("../../logos/facebook.png")}
+                    alt=""
+                    id="company"
+                  />
                 </div>
                 <div className="col-8">
-                  <div className="d-flex justify-content-start">
-                    <h4>
+                  <div className="texte d-flex justify-content-start">
+                    <h5>
                       {" "}
                       {internship.internship_title} at :{" "}
-                      {internship.company.company_name}
-                    </h4>
+                      <span className="co">
+                        {internship.company.company_name}
+                      </span>
+                      <br />
+                      <img
+                        id="location1"
+                        src={require("../../logos/pin.png")}
+                        alt=""
+                      />{" "}
+                      {internship.company.company_city}
+                    </h5>
                   </div>
-                  <div className="d-flex justify-content-end">
-                    <h5>
+                  <div className="texte2 d-flex justify-content-end">
+                    <h6>
                       {" "}
                       {internship.internship_begin_date} |{" "}
                       {internship.internship_end_date}
-                    </h5>
+                    </h6>
                   </div>
 
-                  <p>
+                  <p className="texte3">
                     {" "}
                     {internship.internship_duration} |{" "}
                     {internship.internship_type}
+                    <br />
+                    Description : {internship.internship_description}
                   </p>
-
-                  <p> Description : {internship.internship_description}</p>
                   <div className="row justify-content-end">
                     <div className="col-20">
                       <Link
@@ -215,7 +228,7 @@ class CandidateInternships extends Component {
                         activeClassName="is-active"
                         exact={true}
                       >
-                        <button id="apply_btn2">See Internship details</button>
+                        <button id="apply_btn2">See Internship </button>
                       </Link>
                     </div>
                     <div className="col-20">
@@ -236,14 +249,14 @@ class CandidateInternships extends Component {
                       </button>
                     </div>
                     <div className="col-20">
-                      <input
-                        type="submit"
-                        value="Add to favorites"
-                        id="apply_btn3"
+                      <button
+                        id="apply_btn2"
                         onClick={(e) => {
                           this.createSavedApplication(internship.id);
                         }}
-                      />
+                      >
+                        Add to favorites
+                      </button>
                     </div>
                   </div>
                 </div>

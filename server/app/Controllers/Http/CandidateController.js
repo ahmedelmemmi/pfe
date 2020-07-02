@@ -16,7 +16,6 @@ class CandidateController {
       candidate_adress,
       candidate_city,
       candidate_phone,
-      candidate_photo,
     } = request.only([
       "candidate_email",
       "candidate_password",
@@ -27,7 +26,6 @@ class CandidateController {
       "candidate_adress",
       "candidate_city",
       "candidate_phone",
-      "candidate_photo",
     ]);
     await Candidate.create({
       candidate_email,
@@ -39,7 +37,6 @@ class CandidateController {
       candidate_adress,
       candidate_city,
       candidate_phone,
-      candidate_photo,
     });
     return response.send({ message: "User has been created" });
   }

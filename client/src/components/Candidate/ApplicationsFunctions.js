@@ -25,3 +25,15 @@ export const createSavedApplication_f = (internship_id, config) => {
       return err;
     });
 };
+export const deleteApplication = (id) => {
+  return axios
+    .post(`application/delete/${id}`)
+
+    .then((response) => {
+      console.log(response);
+      return response;
+    })
+    .catch((err) => {
+      return err;
+    });
+};

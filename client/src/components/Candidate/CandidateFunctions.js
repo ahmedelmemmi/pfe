@@ -13,7 +13,6 @@ export const CandidateRegister_f = (newCandidate) => {
       candidate_adress: newCandidate.candidate_adress,
       candidate_city: newCandidate.candidate_city,
       candidate_phone: newCandidate.candidate_phone,
-      candidate_photo: newCandidate.candidate_photo,
     })
     .then((response) => {
       console.log("Registered");
@@ -73,6 +72,16 @@ export const GetApplication = (id) => {
 
     .then((response) => {
       console.log(response);
+      return response;
+    })
+    .catch((err) => {
+      return err;
+    });
+};
+export const SeeCompany = (id) => {
+  return axios
+    .get(`/candidate/company/company/${id}`)
+    .then((response) => {
       return response;
     })
     .catch((err) => {

@@ -58,26 +58,43 @@ class Navbar extends Component {
               Logout
             </a>
           </li> */}
-          <li className="nav-item dropdown " onClick={this.toggleOpen}>
-           <a className="nav-link dropdown-toggle"
-           id="navbarDropdown" role="button"
-           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-             Account
-           </a>
-           <div className={menuClass} aria-labelledby="navbarDropdown" id="dropmenu">
-             <NavLink to="/candidate/profile"
+        <li className="nav-item dropdown " onClick={this.toggleOpen}>
+          <a
+            className="nav-link dropdown-toggle"
+            id="navbarDropdown"
+            role="button"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            Account
+          </a>
+          <div
+            className={menuClass}
+            aria-labelledby="navbarDropdown"
+            id="dropmenu"
+          >
+            <NavLink
+              to="/candidate/profile"
               activeClassName="is-active"
-              className="dropdown-item" exact>
-               My Profile
-             </NavLink>
-             <div class="dropdown-divider"></div>
-              {/* <li className="nav-item"> */}
-                  <NavLink to="/" onClick={this.logOut.bind(this)} activeClassName="is-active" className="dropdown-item">
-                    Logout
-                  </NavLink>
-              {/* </li> */}
-           </div>
-         </li>
+              className="dropdown-item"
+              exact
+            >
+              My Profile
+            </NavLink>
+            <div class="dropdown-divider"></div>
+            {/* <li className="nav-item"> */}
+            <NavLink
+              to="/"
+              onClick={this.logOut.bind(this)}
+              activeClassName="is-active"
+              className="dropdown-item"
+            >
+              Logout
+            </NavLink>
+            {/* </li> */}
+          </div>
+        </li>
       </ul>
     );
 
@@ -98,27 +115,44 @@ class Navbar extends Component {
             My Profile
           </NavLink>
         </li> */}
-        
-          <li className="nav-item dropdown " onClick={this.toggleOpen}>
-           <a className="nav-link dropdown-toggle"
-           id="navbarDropdown" role="button"
-           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-             Account
-           </a>
-           <div className={menuClass} aria-labelledby="navbarDropdown" id="dropmenu">
-             <NavLink to="/company/profile"
+
+        <li className="nav-item dropdown " onClick={this.toggleOpen}>
+          <a
+            className="nav-link dropdown-toggle"
+            id="navbarDropdown"
+            role="button"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            Account
+          </a>
+          <div
+            className={menuClass}
+            aria-labelledby="navbarDropdown"
+            id="dropmenu"
+          >
+            <NavLink
+              to="/company/profile"
               activeClassName="is-active"
-              className="dropdown-item" exact>
-               My Profile
-             </NavLink>
-             <div class="dropdown-divider"></div>
-              {/* <li className="nav-item"> */}
-              <NavLink to="/" onClick={this.logOut.bind(this)} activeClassName="is-active" className="dropdown-item">
-                    Logout
-                  </NavLink>
-              {/* </li> */}
-           </div>
-         </li>
+              className="dropdown-item"
+              exact
+            >
+              My Profile
+            </NavLink>
+            <div class="dropdown-divider"></div>
+            {/* <li className="nav-item"> */}
+            <NavLink
+              to="/"
+              onClick={this.logOut.bind(this)}
+              activeClassName="is-active"
+              className="dropdown-item"
+            >
+              Logout
+            </NavLink>
+            {/* </li> */}
+          </div>
+        </li>
       </ul>
     );
     const loginRegLink = (
@@ -166,10 +200,17 @@ class Navbar extends Component {
             Register company
           </NavLink>
         </li>
-          <form class="form-inline  ">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"/>
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-          </form>
+        <form class="form-inline  ">
+          <input
+            class="form-control mr-sm-2"
+            type="search"
+            placeholder="Search"
+            aria-label="Search"
+          />
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+            Search
+          </button>
+        </form>
       </ul>
     );
 

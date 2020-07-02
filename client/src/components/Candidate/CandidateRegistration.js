@@ -21,7 +21,6 @@ class CandidateRegistration extends Component {
       candidate_adress: "",
       candidate_city: "",
       candidate_phone: "",
-      candidate_photo: "",
     };
 
     this.onChange = this.onChange.bind(this);
@@ -44,7 +43,6 @@ class CandidateRegistration extends Component {
       candidate_adress: this.state.candidate_adress,
       candidate_city: this.state.candidate_city,
       candidate_phone: this.state.candidate_phone,
-      candidate_photo: this.state.candidate_photo,
     };
 
     CandidateRegister_f(newCandidate).then((res) =>
@@ -191,17 +189,7 @@ class CandidateRegistration extends Component {
                   onChange={this.onChange}
                 />
               </div>
-              <div className="form-group">
-                <label htmlFor="name">candidate_photo</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  name="candidate_photo"
-                  placeholder="Enter your first name"
-                  value={this.state.candidate_photo}
-                  onChange={this.onChange}
-                />
-              </div>
+
               <button
                 type="submit"
                 className="btn btn-lg btn-primary btn-block"
