@@ -17,14 +17,25 @@ class Internship extends Model {
     return this.belongsToMany("App/Models/Skill");
   }
 
-  static formatDates(field, value) {
+  static get createdAtColumn() {
+    return null;
+  }
+
+  static get updatedAtColumn() {
+    return null;
+  }
+
+  static get dates() {
+    return super.dates.concat(["internship_begin_date", "internship_end_date"]);
+  }
+
+  static castDates(field, value) {
     if (field === "internship_begin_date") {
       return value.format("DD-MM-YYYY");
     }
     if (field === "internship_end_date") {
       return value.format("DD-MM-YYYY");
     }
-    return super.formatDates(field, value);
   }
 }
 

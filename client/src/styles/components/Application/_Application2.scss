@@ -1,7 +1,7 @@
 .application {
   position: relative;
   border: 1px solid black;
-  border-radius: 3.5px;
+  border-radius: 30px;
   margin: 20px 0 20px 0;
   box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3);
   transition: box-shadow 0.3s;
@@ -58,8 +58,8 @@
 .application h2 {
   display: inline-flex;
   position: relative;
-  bottom: 200px;
-  left: 200px;
+  bottom: 170px;
+  left: 180px;
 }
 .application h4 {
   margin: 8px;
@@ -68,12 +68,9 @@
 .para {
   left: 40px;
   position: relative;
-  bottom: 150px;
+  bottom: 140px;
 }
-.co {
-  text-decoration: underline;
-  cursor: pointer; /* Pointer/hand icon */
-}
+
 .alertCompany {
   margin-top: 0;
   top: 57px;

@@ -58,7 +58,7 @@ class CandidateApplication extends Component {
           </Dialog2>
         </div>
         {/*  application details page for candidate */}
-        <h3 className="alertA">{this.state.application.candidate_message}</h3>
+        <h3 className="alarm">{this.state.application.candidate_message}</h3>
         <div className="col-md-2 btn2-group">
           <div className="">
             <button
@@ -88,7 +88,7 @@ class CandidateApplication extends Component {
             </Link>
           </div>
         </div>
-        <div className="col-md-8 application1">
+        <div className="col-md-8 opportunity1">
           {" "}
           <div className="col-4">
             <img
@@ -97,22 +97,23 @@ class CandidateApplication extends Component {
               alt=""
             />
           </div>
-          <h2>
-            {this.state.internship.internship_title} <h4> at </h4>
+          <h3>
+            {this.state.internship.internship_title} <h5> at </h5>
             <span className="co">{this.state.company.company_name}</span>
             <img
               id="location8"
               src={require("../../logos/pin.png")}
               alt=""
             />{" "}
-            <h4> {this.state.company.company_city}</h4>
-          </h2>
+            <h5> {this.state.company.company_city}</h5>
+          </h3>
           <br />
-          <h2>
+          <h3>
             {" "}
-            <h4>STATUS : </h4>
+            <h5>STATUS : </h5>
             {this.state.application.app_status}
-          </h2>
+          </h3>
+          <br />
           <br />
           <div className="para">
             <p>applied at : {this.state.application.created_at}</p>

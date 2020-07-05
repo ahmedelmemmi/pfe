@@ -1,4 +1,5 @@
 "use strict";
+
 const Application = use("App/Models/Application");
 const Candidate = use("App/Models/Candidate");
 const Internship = use("App/Models/Internship");
@@ -36,6 +37,21 @@ class ApplicationController {
   //       data: apps,
   //     });
   //   }
+
+  async check({ response, auth, params }) {
+    const cand = await Candidate.find(1);
+    const ida = cand.id;
+    const ide = params.intern_id;
+    const app = await Application.query()
+      .where("internship_id", "=", ide)
+      .where("candidate_id", "=", ida)
+
+      .fetch();
+
+    return response.status(200).json({
+      test: !(app.length === 0),
+    });
+  }
 
   async create({ response, auth, params }) {
     const cand = await auth.getUser();

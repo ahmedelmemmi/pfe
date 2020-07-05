@@ -105,7 +105,7 @@ class CandidateApplication extends Component {
           </div>
           <h2>
             {this.state.candidate.candidate_name} <h4> , </h4>
-            <span className="co">{this.state.candidate.candidate_service}</span>
+            {this.state.candidate.candidate_service}
             <h4> has applied to : {this.state.internship.internship_name}</h4>
           </h2>
           <br />

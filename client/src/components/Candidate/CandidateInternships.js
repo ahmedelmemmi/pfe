@@ -2,6 +2,9 @@ import React, { Component } from "react";
 import { Link, withRouter } from "react-router-dom";
 import { createApplication_f } from "./ApplicationsFunctions.js";
 import { createSavedApplication_f } from "./ApplicationsFunctions.js";
+import { checkApplication_f } from "./ApplicationsFunctions.js";
+import Dialog2 from "../Dialog2";
+
 import { connect } from "react-redux";
 import { internships_f } from "../../store/actions/InternshipsActions";
 import { filter_intern } from "../../store/actions/Filter_internActions";
@@ -11,12 +14,14 @@ class CandidateInternships extends Component {
     super(props);
     this.createApplication = this.createApplication.bind(this);
     this.createSavedApplication = this.createSavedApplication.bind(this);
+    this.checkApplication = this.checkApplication.bind(this);
 
     this.state = {
       internship_title: "",
       internship_field: "",
       internship_duration: "",
-      disabled: false,
+      error: false,
+      msg: "",
     };
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
@@ -71,18 +76,37 @@ class CandidateInternships extends Component {
       console.log("application saved created");
     });
   }
+  checkApplication(id) {
+    const token = localStorage.usertoken;
 
-  disablebutton() {
-    document.getElementById("apply_btn2").disabled = true;
-    document.getElementById("apply_btn2").value = "applied";
+    const config2 = {
+      headers: { Authorization: `Bearer ${token}` },
+    };
+    checkApplication_f(id, config2).then((res) => {
+      console.log(res);
+      if (res.data.test === true) return true;
+      else return false;
+    });
   }
 
   render() {
-    const aa = this.props;
-    console.log(aa);
-    console.log(this.state);
     return (
       <div className="row">
+        <div className="">
+          <Dialog2
+            isOpen={this.state.error}
+            onClose={(e) =>
+              this.setState((prevState) => {
+                return {
+                  ...prevState,
+                  error: false,
+                };
+              })
+            }
+          >
+            {this.state.msg}
+          </Dialog2>
+        </div>
         <div className="col-md-3 mt-5 mx-auto">
           <div className="position-fixed">
             <form noValidate onSubmit={this.onSubmit}>
@@ -233,16 +257,28 @@ class CandidateInternships extends Component {
                     </div>
                     <div className="col-20">
                       <button
-                        type="submit"
                         id="apply_btn2"
-                        disabled={false}
-                        class="btn btn-primary"
-                        value="Apply"
                         onClick={(e) => {
-                          this.createApplication(internship.id);
-                          this.value = "Applied";
-                          this.setState({ disabled: "true" });
-                          alert("Application has been sent.");
+                          const test = this.checkApplication(internship.id);
+                          if (test === true) {
+                            this.createApplication(internship.id);
+                            this.setState((prevState) => {
+                              return {
+                                ...prevState,
+                                error: true,
+                                msg: "Your application has been sent",
+                              };
+                            });
+                          } else {
+                            this.setState((prevState) => {
+                              return {
+                                ...prevState,
+                                error: true,
+                                msg:
+                                  "You have already applied to this opportunity!!",
+                              };
+                            });
+                          }
                         }}
                       >
                         Apply

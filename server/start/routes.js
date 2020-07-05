@@ -63,3 +63,5 @@ Route.group(() => {
   Route.post("/delete/:id", "ApplicationController.delete");
 }).prefix("application");
 Route.post("candidate/application/:intern_id", "ApplicationController.create");
+
+Route.get("candidate/application/:intern_id", "ApplicationController.check");

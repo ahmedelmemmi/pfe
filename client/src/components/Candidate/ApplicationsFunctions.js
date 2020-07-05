@@ -37,3 +37,15 @@ export const deleteApplication = (id) => {
       return err;
     });
 };
+export const checkApplication_f = (id, config) => {
+  return axios
+    .get(`application/${id}`, config)
+
+    .then((response) => {
+      console.log(response);
+      return response;
+    })
+    .catch((err) => {
+      return err;
+    });
+};
