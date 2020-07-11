@@ -49,7 +49,7 @@ class ApplicationController {
       .fetch();
 
     return response.status(200).json({
-      test: !(app.length === 0),
+      test: app,
     });
   }
 

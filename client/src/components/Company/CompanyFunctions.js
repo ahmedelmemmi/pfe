@@ -93,3 +93,28 @@ export const SeeCandidate = (id) => {
       return err;
     });
 };
+
+export const createSavedCandidate_f = (candidate_id, config) => {
+  return axios
+    .post(`favoriteCandidate/${candidate_id}`, { name: "ala " }, config)
+
+    .then((response) => {
+      console.log(response);
+      return response;
+    })
+    .catch((err) => {
+      return err;
+    });
+};
+export const GetFavorite = (config) => {
+  return axios
+    .get("/favorite/ofCompany", config)
+
+    .then((response) => {
+      console.log(response);
+      return response;
+    })
+    .catch((err) => {
+      return err;
+    });
+};

@@ -88,3 +88,15 @@ export const SeeCompany = (id) => {
       return err;
     });
 };
+export const GetFavorite = (config) => {
+  return axios
+    .get("/favorite/ofCandidate", config)
+
+    .then((response) => {
+      console.log(response);
+      return response;
+    })
+    .catch((err) => {
+      return err;
+    });
+};

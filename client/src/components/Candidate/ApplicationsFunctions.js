@@ -15,7 +15,7 @@ export const createApplication_f = (internship_id, config) => {
 
 export const createSavedApplication_f = (internship_id, config) => {
   return axios
-    .post(`application/${internship_id}`, config)
+    .post(`favoriteApplication/${internship_id}`, { name: "ala " }, config)
 
     .then((response) => {
       console.log(response);

@@ -3,10 +3,13 @@ import React, { Component } from "react";
 import { Link, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { all_candidates_f } from "../../store/actions/All_candidatesActions";
+import { createSavedCandidate_f } from "./CompanyFunctions";
+
 import { filter_all_candidates } from "../../store/actions/Filter_all_candidatesActions";
 class AllCandidates extends Component {
   constructor(props) {
     super(props);
+    this.createSavedCandidate = this.createSavedCandidate.bind(this);
 
     this.state = {
       candidate_service: "",
@@ -30,6 +33,17 @@ class AllCandidates extends Component {
   }
   componentDidMount(props) {
     this.props.all_candidates_f();
+  }
+  createSavedCandidate(candidate_id) {
+    const token = localStorage.usertoken;
+
+    const config = {
+      headers: { Authorization: `Bearer ${token}` },
+    };
+    createSavedCandidate_f(candidate_id, config).then((res) => {
+      console.log(res);
+      console.log("candidate saved created");
+    });
   }
 
   render() {
@@ -123,6 +137,19 @@ class AllCandidates extends Component {
             <Link to="/" activeClassName="is-active" exact={true}>
               <button>See Profil</button>
     </Link> */}
+              <div className="row justify-content-end">
+                <Link to="/" activeClassName="is-active" exact={true}>
+                  <button id="profilBtn">See Profil</button>
+                </Link>
+                <button
+                  id="apply_btn2"
+                  onClick={(e) => {
+                    this.createSavedCandidate(candidate.id);
+                  }}
+                >
+                  Add to favorites
+                </button>
+              </div>
             </div>
           ))}
         </div>

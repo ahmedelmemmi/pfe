@@ -14,7 +14,6 @@ class CandidateInternships extends Component {
     super(props);
     this.createApplication = this.createApplication.bind(this);
     this.createSavedApplication = this.createSavedApplication.bind(this);
-    this.checkApplication = this.checkApplication.bind(this);
 
     this.state = {
       internship_title: "",
@@ -73,19 +72,8 @@ class CandidateInternships extends Component {
       headers: { Authorization: `Bearer ${token}` },
     };
     createSavedApplication_f(internship_id, config).then((res) => {
-      console.log("application saved created");
-    });
-  }
-  checkApplication(id) {
-    const token = localStorage.usertoken;
-
-    const config2 = {
-      headers: { Authorization: `Bearer ${token}` },
-    };
-    checkApplication_f(id, config2).then((res) => {
       console.log(res);
-      if (res.data.test === true) return true;
-      else return false;
+      console.log("application saved created");
     });
   }
 
@@ -259,26 +247,56 @@ class CandidateInternships extends Component {
                       <button
                         id="apply_btn2"
                         onClick={(e) => {
-                          const test = this.checkApplication(internship.id);
-                          if (test === true) {
-                            this.createApplication(internship.id);
-                            this.setState((prevState) => {
-                              return {
-                                ...prevState,
-                                error: true,
-                                msg: "Your application has been sent",
-                              };
-                            });
-                          } else {
-                            this.setState((prevState) => {
-                              return {
-                                ...prevState,
-                                error: true,
-                                msg:
-                                  "You have already applied to this opportunity!!",
-                              };
-                            });
-                          }
+                          const token = localStorage.usertoken;
+
+                          const config2 = {
+                            headers: { Authorization: `Bearer ${token}` },
+                          };
+                          let x = false;
+                          checkApplication_f(internship.id, config2).then(
+                            (res) => {
+                              x = res.data.test.length === 0;
+                              if (x === true) {
+                                this.createApplication(internship.id);
+                                this.setState((prevState) => {
+                                  return {
+                                    ...prevState,
+                                    error: true,
+                                    msg: "Your application has been sent",
+                                  };
+                                });
+                              } else {
+                                this.setState((prevState) => {
+                                  return {
+                                    ...prevState,
+                                    error: true,
+                                    msg:
+                                      "You have already applied to this opportunity!!",
+                                  };
+                                });
+                              }
+                            }
+                          );
+                          console.log(x);
+                          // if (test === true) {
+                          //   this.createApplication(internship.id);
+                          //   this.setState((prevState) => {
+                          //     return {
+                          //       ...prevState,
+                          //       error: true,
+                          //       msg: "Your application has been sent",
+                          //     };
+                          //   });
+                          // } else {
+                          //   this.setState((prevState) => {
+                          //     return {
+                          //       ...prevState,
+                          //       error: true,
+                          //       msg:
+                          //         "You have already applied to this opportunity!!",
+                          //     };
+                          //   });
+                          // }
                         }}
                       >
                         Apply

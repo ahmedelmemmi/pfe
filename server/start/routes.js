@@ -63,5 +63,14 @@ Route.group(() => {
   Route.post("/delete/:id", "ApplicationController.delete");
 }).prefix("application");
 Route.post("candidate/application/:intern_id", "ApplicationController.create");
-
+Route.post(
+  "candidate/favoriteApplication/:intern_id",
+  "FavoriteInternshipController.create"
+);
 Route.get("candidate/application/:intern_id", "ApplicationController.check");
+Route.get("favorite/ofCandidate", "FavoriteInternshipController.ofCandidate");
+Route.get("favorite/ofCompany", "FavoriteCandidateController.ofCompany");
+Route.post(
+  "company/favoriteCandidate/:cand_id",
+  "FavoriteCandidateController.create"
+);
