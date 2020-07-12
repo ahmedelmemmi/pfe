@@ -30,11 +30,12 @@ class InternshipsPage extends Component {
   render() {
     return (
       <div>
-        <div>
-          <button onClick={this.ToggleVisibility_search}>
+        <div className="d-flex justify-content-center">
+          <button 
+          className="InternBtn" onClick={this.ToggleVisibility_search}>
             Search internships
           </button>
-          <button onClick={this.ToggleVisibility_saved}>
+          <button className="InternBtn" onClick={this.ToggleVisibility_saved}>
             Saved Internships
           </button>
         </div>

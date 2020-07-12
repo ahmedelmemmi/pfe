@@ -87,7 +87,7 @@ class CandidateProfile extends Component {
           <div className=" jumbotron">
             <div className="col-sm-8 mx-auto">
               <img src={require("../../logos/user.png")} id="edit" alt="" />
-              <h1 className="text-left">ALA MAATOUK , web dev</h1>
+              <h1 className="text-left">{this.state.candidate_name} , {this.state.candidate_service}</h1>
             </div>
             <div className="col-sm-8 mx-auto">
               <h3 className="text-left2">Personal Details:</h3>

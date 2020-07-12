@@ -48,7 +48,7 @@ class CompanyProfile extends Component {
           <div className="col-sm-8 mx-auto">
             <img src={require("../../logos/facebook.png")} id="editF" alt="" />
             <h1 className="text-left">
-              DEVAGNOS{" "}
+            {this.state.company_name}{" "}
               <img id="location" src={require("../../logos/pin.png")} alt="" />{" "}
               <h4> Monastir</h4>{" "}
             </h1>

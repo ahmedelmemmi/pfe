@@ -152,11 +152,9 @@ class CandidateInternships extends Component {
                 >
                   <option value=""></option>
 
-                  <option value="One month duration">One month duration</option>
-                  <option value="three month duration">
-                    three month duration
-                  </option>
-                  <option value="six month duration">six month duration</option>
+                  <option value="One month">One month</option>
+                  <option value="Three months">Three months</option>
+                  <option value="Six months">Six months</option>
                 </select>
               </div>
               <div className="row">

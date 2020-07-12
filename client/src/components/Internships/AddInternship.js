@@ -96,16 +96,20 @@ export default class AddInternship extends Component{
                     />
                   </div>
                   <div className="form-group">
-                    <label htmlFor="name">Duration</label>
-                    <input
-                      type="text"
-                      className="form-control"
-                      name="internship_duration"
-                      placeholder="internship_duration"
-                      value={this.state.internship_duration}
-                      onChange={this.onChange}
-                    />
-                  </div>
+                <label htmlFor="internship_duration">Internship duration</label>
+                <select
+                  type="text"
+                  className="form-control"
+                  name="internship_duration"
+                  placeholder="internship_duration"
+                  value={this.state.internship_duration}
+                  onChange={this.onChange}
+                >
+                  <option value="One month ">One month</option>
+                  <option value="three months">three months</option>
+                  <option value="six months">six months</option>
+                </select>
+              </div>
                   <div className="form-group">
                     <label htmlFor="name">City</label>
                     <select

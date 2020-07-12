@@ -140,7 +140,7 @@ class CandidateRegistration extends Component {
                   type="text"
                   className="form-control"
                   name="candidate_adress"
-                  placeholder="Enter your first name"
+                  placeholder="Enter your adress"
                   value={this.state.candidate_adress}
                   onChange={this.onChange}
                 />
@@ -151,7 +151,6 @@ class CandidateRegistration extends Component {
                   type="text"
                   className="form-control"
                   name="candidate_city"
-                  placeholder="Enter your first name"
                   value={this.state.candidate_city}
                   onChange={this.onChange}
                 >
@@ -179,12 +178,12 @@ class CandidateRegistration extends Component {
                 </select>
               </div>
               <div className="form-group">
-                <label htmlFor="name">candidate_phone</label>
+                <label htmlFor="name">Phone</label>
                 <input
                   type="text"
                   className="form-control"
                   name="candidate_phone"
-                  placeholder="Enter your first name"
+                  placeholder="Enter your phone number"
                   value={this.state.candidate_phone}
                   onChange={this.onChange}
                 />

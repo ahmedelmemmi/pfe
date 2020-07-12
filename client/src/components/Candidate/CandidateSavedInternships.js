@@ -47,7 +47,7 @@ class CandidateApplication extends Component {
                 <div className="texte d-flex justify-content-start">
                   <h5>
                     {" "}
-                    {fav.internship_title} at :{" "}
+                    {fav.internship.internship_title} at :{" "}
                     <span className="co">
                       {fav.internship.company.company_name}
                     </span>
