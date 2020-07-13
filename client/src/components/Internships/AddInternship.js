@@ -14,7 +14,7 @@ export default class AddInternship extends Component{
          internship_description: "",
          internship_type: "",
          internship_duration: "",
-         internship_city:"",
+        //  internship_city:"",
          internship_level: "",
          internship_begin_date: "",
          internship_end_date: ""
@@ -36,7 +36,7 @@ export default class AddInternship extends Component{
             internship_type: this.state.internship_type,
             internship_duration: this.state.internship_duration,
             internship_level: this.state.internship_level,
-            internship_city: this.state.internship_city, // lezem tzid fil controller mta3 l internship l city 
+            // internship_city: this.state.internship_city,
             internship_begin_date: this.state.internship_begin_date,
             internship_end_date: this.state.internship_end_date
         };
@@ -110,7 +110,7 @@ export default class AddInternship extends Component{
                   <option value="six months">six months</option>
                 </select>
               </div>
-                  <div className="form-group">
+                  {/* <div className="form-group">
                     <label htmlFor="name">City</label>
                     <select
                       type="text"
@@ -142,7 +142,7 @@ export default class AddInternship extends Component{
                                         <option value="Tunis">Tunis</option>
                                         <option value="Zaghouan">Zaghouan</option>
                       </select>
-                  </div>
+                  </div> */}
                   <div className="form-group">
                     <label htmlFor="name">Type</label>
                     <select

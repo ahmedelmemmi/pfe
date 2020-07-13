@@ -30,10 +30,6 @@ export const CandidateLogin_f = (user) => {
     .then((res) => {
       localStorage.setItem("usertoken", res.data.token.token);
       let test = 1;
-      // console.log(res.data.email);
-      // if (res.data.email) {
-      //   test = 1;
-      // }
       localStorage.setItem("usertype", test);
 
       console.log(res);

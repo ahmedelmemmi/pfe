@@ -15,6 +15,7 @@ import CompanyApplication from "./components/Company/CompanyApplication";
 import CandidatesPage from "./components/Company/CandidatesPage";
 import SeeCompany from "./components/Candidate/SeeCompany";
 import SeeCandidate from "./components/Company/SeeCandidate";
+import AddInternship from "./components/Internships/AddInternship"
 class App extends Component {
   render() {
     return (
@@ -46,9 +47,8 @@ class App extends Component {
             component={CompanyApplication}
           />
           <Route path="/company/candidatesPage" component={CandidatesPage} />
-          {/*  <Route path="/company/internships" component={AddInternship} /> */}
+          <Route path="/company/internships" component={AddInternship} /> 
         </Switch>
-        {/* <Footer/> */}
       </Router>
     );
   }

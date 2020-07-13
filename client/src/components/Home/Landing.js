@@ -9,6 +9,7 @@ class Landing extends Component {
   render() {
     return (
       <div className="container-fluid">
+        <div className="container">
         <img id="path" src={require("../../logos/Path 1.svg")} alt="" />
         <div className="row">
           <Company />
@@ -20,9 +21,9 @@ class Landing extends Component {
         {/* <div className="row"> */}
         <AboutUs />
         {/* </div> */}
-       
+        </div>
         <Footer/>
-       
+        
       </div>
     );
   }
