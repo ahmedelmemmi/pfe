@@ -34,7 +34,7 @@ class CandidateRegister extends Component {
               <div className="col-md-3 mt-5 mx-auto">
                 <img
                   src={require("../../logos/Asset 2@2x.svg")}
-                  id="interphoto"
+                  id="interphoto2"
                   alt=""
                 />
               </div>
