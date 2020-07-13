@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 import Landing from "./components/Home/Landing";
 import CandidateRegister from "./components/Candidate/CandidateRegister";
 import CandidateProfile from "./components/Candidate/CandidateProfile";
@@ -47,6 +48,7 @@ class App extends Component {
           <Route path="/company/candidatesPage" component={CandidatesPage} />
           {/*  <Route path="/company/internships" component={AddInternship} /> */}
         </Switch>
+        {/* <Footer/> */}
       </Router>
     );
   }
