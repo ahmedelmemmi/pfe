@@ -75,7 +75,6 @@ class CompanyCandidates extends Component {
         </div>
         {/* List */}
         <div className="col-md-6 mt-5 mx-auto">
-          <p>Please add your application to get started!</p>
           {this.props.candidates.map((candidate) => (
             <div className="container" id="box_opp2">
               <div className="d-flex justify-content-start">
@@ -104,7 +103,7 @@ class CompanyCandidates extends Component {
                   <button id="detailBtn">See application details</button>
                 </Link>
                 <Link to="/" activeClassName="is-active" exact={true}>
-                  <button id="profilBtn">See Profil</button>
+                  <button id="detailBtn">See Profil</button>
                 </Link>
               </div>
             </div>

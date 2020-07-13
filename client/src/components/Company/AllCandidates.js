@@ -1,9 +1,10 @@
 import React, { Component } from "react";
-
+import Dialog2 from "../Dialog2";
 import { Link, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { all_candidates_f } from "../../store/actions/All_candidatesActions";
 import { createSavedCandidate_f } from "./CompanyFunctions";
+import { checkCandidate_f } from "./CompanyFunctions";
 
 import { filter_all_candidates } from "../../store/actions/Filter_all_candidatesActions";
 class AllCandidates extends Component {
@@ -15,6 +16,8 @@ class AllCandidates extends Component {
       candidate_service: "",
       candidate_full_name: "",
       candidate_nb_experience: "",
+      error: false,
+      msg: "",
     };
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
@@ -50,6 +53,21 @@ class AllCandidates extends Component {
     console.log(this.props);
     return (
       <div className="row">
+        <div className="">
+          <Dialog2
+            isOpen={this.state.error}
+            onClose={(e) =>
+              this.setState((prevState) => {
+                return {
+                  ...prevState,
+                  error: false,
+                };
+              })
+            }
+          >
+            {this.state.msg}
+          </Dialog2>
+        </div>
         <div className="col-md-3 mt-5 mx-auto">
           <form noValidate onSubmit={this.onSubmit}>
             <h1 className="h3 mb-3 font-weight-normal">Filter :</h1>
@@ -139,12 +157,59 @@ class AllCandidates extends Component {
     </Link> */}
               <div className="row justify-content-end">
                 <Link to="/" activeClassName="is-active" exact={true}>
-                  <button id="profilBtn">See Profil</button>
+                  <button id="apply_btn4">See Profil</button>
                 </Link>
                 <button
-                  id="apply_btn2"
+                  id="apply_btn5"
                   onClick={(e) => {
-                    this.createSavedCandidate(candidate.id);
+                    const token = localStorage.usertoken;
+
+                    const config2 = {
+                      headers: { Authorization: `Bearer ${token}` },
+                    };
+                    let x = false;
+                    checkCandidate_f(candidate.id, config2).then((res) => {
+                      console.log(res);
+                      x = res.data.test.length === 0;
+                      if (x === true) {
+                        this.createSavedCandidate(candidate.id);
+                        this.setState((prevState) => {
+                          return {
+                            ...prevState,
+                            error: true,
+                            msg: "Candidate added to favorites",
+                          };
+                        });
+                      } else {
+                        this.setState((prevState) => {
+                          return {
+                            ...prevState,
+                            error: true,
+                            msg: "Candidate already among the favorites",
+                          };
+                        });
+                      }
+                    });
+                    console.log(x);
+                    // if (test === true) {
+                    //   this.createApplication(internship.id);
+                    //   this.setState((prevState) => {
+                    //     return {
+                    //       ...prevState,
+                    //       error: true,
+                    //       msg: "Your application has been sent",
+                    //     };
+                    //   });
+                    // } else {
+                    //   this.setState((prevState) => {
+                    //     return {
+                    //       ...prevState,
+                    //       error: true,
+                    //       msg:
+                    //         "You have already applied to this opportunity!!",
+                    //     };
+                    //   });
+                    // }
                   }}
                 >
                   Add to favorites

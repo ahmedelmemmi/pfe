@@ -47,14 +47,20 @@ class CandidatesPage extends Component {
   render() {
     return (
       <div>
-        <div>
-          <button onClick={this.ToggleVisibility_search}>
+        <div className="btnX">
+          <button className="InternBtn1" onClick={this.ToggleVisibility_search}>
             Search Candidates
           </button>
-          <button onClick={this.ToggleVisibility_mycandidates}>
+          <button
+            className="InternBtn1"
+            onClick={this.ToggleVisibility_mycandidates}
+          >
             Applied Candidates
           </button>
-          <button onClick={this.ToggleVisibility_favorite}>
+          <button
+            className="InternBtn1"
+            onClick={this.ToggleVisibility_favorite}
+          >
             Favorite Candidates
           </button>
         </div>

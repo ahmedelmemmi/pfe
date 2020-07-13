@@ -9,6 +9,17 @@
   box-shadow: 2px 2px 2px 2px #f43478;
   float: left;
 }
+#box_opp3 {
+  position: relative;
+  margin-top: 20px;
+  width: 70%;
+  height: 210px;
+  background-color: white;
+  border: 1px bold black;
+  border-radius: 50px;
+  box-shadow: 2px 2px 2px 2px #f43478;
+  float: left;
+}
 
 #detailBtn {
   overflow: visible;
@@ -27,4 +38,22 @@
   background-image: linear-gradient(#f43478, #ff6456);
   color: white;
   font-family: Arial, Helvetica, sans-serif;
+}
+.InternBtn1 {
+  //text-align: center;
+  margin-left: 10px;
+  justify-content: center;
+  align-items: center;
+  width: 20%;
+  height: 50px;
+  border-radius: 40px;
+  background-image: linear-gradient(#f43478, #ff6456);
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.btnX {
+  position: relative;
+  margin-left: 300px;
+  display: flex;
+  flex-wrap: nowrap;
 }

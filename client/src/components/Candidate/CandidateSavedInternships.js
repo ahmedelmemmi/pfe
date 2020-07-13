@@ -4,13 +4,16 @@ import "../../styles/components/Application/_Application1.scss";
 import { deleteApplication } from "./ApplicationsFunctions";
 import Dialog2 from "../Dialog2";
 import { Link, withRouter } from "react-router-dom";
+import { deleteFavorite_f } from "./ApplicationsFunctions";
 
-class CandidateApplication extends Component {
+class CandidateSavedApplication extends Component {
   constructor(props) {
     super(props);
-
+    this.fonction = this.fonction.bind(this);
     this.state = {
       favorite: [],
+      error: false,
+      msg: "",
     };
   }
   componentDidMount(props) {
@@ -21,18 +24,34 @@ class CandidateApplication extends Component {
     };
     GetFavorite(config).then((res) => {
       const fav = res.data.data;
-
+      console.log(fav);
       this.setState((prevState) => ({
         ...prevState,
         favorite: fav,
       }));
       console.log(this.state);
     });
+    console.log(this.state);
   }
-
+  fonction() {
+    alert("Favorite internship has been deleted");
+  }
   render() {
     return (
       <div className="row">
+        <Dialog2
+          isOpen={this.state.error}
+          onClose={(e) => {
+            this.setState((prevState) => {
+              return {
+                ...prevState,
+                error: false,
+              };
+            });
+          }}
+        >
+          {this.state.msg}
+        </Dialog2>
         {this.state.favorite.map((fav) => (
           <div className="container" id="box_opp">
             <div className="row">
@@ -82,7 +101,16 @@ class CandidateApplication extends Component {
                       activeClassName="is-active"
                       exact={true}
                     >
-                      <button id="apply_btn2">See Internship </button>
+                      <button
+                        id="apply_btn2"
+                        onClick={(e) => {
+                          deleteFavorite_f(fav.id);
+                          this.fonction();
+                          console.log(this.state);
+                        }}
+                      >
+                        Remove from favorites
+                      </button>
                     </Link>
                   </div>
                 </div>
@@ -94,4 +122,4 @@ class CandidateApplication extends Component {
     );
   }
 }
-export default CandidateApplication;
+export default CandidateSavedApplication;

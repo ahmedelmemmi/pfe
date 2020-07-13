@@ -74,3 +74,14 @@ Route.post(
   "company/favoriteCandidate/:cand_id",
   "FavoriteCandidateController.create"
 );
+Route.get("company/checkFav/:cand_id", "FavoriteCandidateController.check");
+Route.post(
+  "company/deleteFavorite/:fav_id",
+  "FavoriteCandidateController.delete"
+);
+Route.post("deleteFavorite2/:fav_id", "FavoriteInternshipController.delete");
+Route.post("company/invite/:fav_id", "FavoriteCandidateController.invite");
+Route.get(
+  "candidate/checkFav2/:intern_id",
+  "FavoriteInternshipController.check"
+);

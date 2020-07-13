@@ -118,3 +118,40 @@ export const GetFavorite = (config) => {
       return err;
     });
 };
+export const checkCandidate_f = (id, config) => {
+  return axios
+    .get(`checkFav/${id}`, config)
+
+    .then((response) => {
+      console.log(response);
+      return response;
+    })
+    .catch((err) => {
+      return err;
+    });
+};
+
+export const deleteFavorite_f = (id, config) => {
+  return axios
+    .post(`deleteFavorite/${id}`, { name: "ala " }, config)
+
+    .then((response) => {
+      console.log(response);
+      return response;
+    })
+    .catch((err) => {
+      return err;
+    });
+};
+export const inviteFavorite_f = (id, config) => {
+  return axios
+    .post(`invite/${id}`, { name: "ala " }, config)
+
+    .then((response) => {
+      console.log(response);
+      return response;
+    })
+    .catch((err) => {
+      return err;
+    });
+};

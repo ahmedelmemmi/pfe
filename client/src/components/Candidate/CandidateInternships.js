@@ -4,6 +4,9 @@ import { createApplication_f } from "./ApplicationsFunctions.js";
 import { createSavedApplication_f } from "./ApplicationsFunctions.js";
 import { checkApplication_f } from "./ApplicationsFunctions.js";
 import Dialog2 from "../Dialog2";
+import { checkApplication3_f } from "./ApplicationsFunctions.js";
+
+import { checkCandidate_f } from "./ApplicationsFunctions";
 
 import { connect } from "react-redux";
 import { internships_f } from "../../store/actions/InternshipsActions";
@@ -304,7 +307,57 @@ class CandidateInternships extends Component {
                       <button
                         id="apply_btn2"
                         onClick={(e) => {
-                          this.createSavedApplication(internship.id);
+                          const token = localStorage.usertoken;
+
+                          const config2 = {
+                            headers: { Authorization: `Bearer ${token}` },
+                          };
+                          let x = false;
+                          checkApplication3_f(internship.id, config2).then(
+                            (res) => {
+                              console.log(res);
+                              x = res.data.test.length === 0;
+                              if (x === true) {
+                                this.createSavedApplication(internship.id);
+                                this.setState((prevState) => {
+                                  return {
+                                    ...prevState,
+                                    error: true,
+                                    msg: "Internship added to favorites",
+                                  };
+                                });
+                              } else {
+                                this.setState((prevState) => {
+                                  return {
+                                    ...prevState,
+                                    error: true,
+                                    msg:
+                                      "Internship already among the favorites",
+                                  };
+                                });
+                              }
+                            }
+                          );
+                          console.log(x);
+                          // if (test === true) {
+                          //   this.createApplication(internship.id);
+                          //   this.setState((prevState) => {
+                          //     return {
+                          //       ...prevState,
+                          //       error: true,
+                          //       msg: "Your application has been sent",
+                          //     };
+                          //   });
+                          // } else {
+                          //   this.setState((prevState) => {
+                          //     return {
+                          //       ...prevState,
+                          //       error: true,
+                          //       msg:
+                          //         "You have already applied to this opportunity!!",
+                          //     };
+                          //   });
+                          // }
                         }}
                       >
                         Add to favorites

@@ -31,12 +31,11 @@ class InternshipsPage extends Component {
     return (
       <div>
         <div className="d-flex justify-content-center">
-          <button 
-          className="InternBtn" onClick={this.ToggleVisibility_search}>
+          <button className="InternBtn" onClick={this.ToggleVisibility_search}>
             Search internships
           </button>
           <button className="InternBtn" onClick={this.ToggleVisibility_saved}>
-            Saved Internships
+            Favorite Internships
           </button>
         </div>
         <div className="">

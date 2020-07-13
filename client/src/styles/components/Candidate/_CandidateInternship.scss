@@ -9,11 +9,72 @@
   box-shadow: 2px 2px 2px 2px #f43478;
   float: left;
 }
-
+#box_opp3 {
+  position: relative;
+  margin-top: 20px;
+  width: 80%;
+  height: 300px;
+  background-color: white;
+  border: 1px bold black;
+  border-radius: 50px;
+  box-shadow: 2px 2px 2px 2px #f43478;
+  float: left;
+}
 .col-4 > img {
   width: 150px;
   height: 150px;
   margin: 25%;
+}
+#apply_btn4 {
+  position: relative;
+  overflow: visible;
+  left: 85%;
+  width: 100px;
+  height: 50px;
+  border-radius: 40px;
+  background-image: linear-gradient(#f43478, #ff6456);
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+}
+#apply_btn4:hover {
+  background-color: rgba(233, 17, 99, 0.4);
+  box-shadow: 0px 15px 20px rgba(233, 17, 99, 0.4);
+  color: #fff;
+  transform: translateY(-7px);
+}
+#apply_btn5 {
+  position: relative;
+  overflow: visible;
+  left: -18%;
+  width: 100px;
+  height: 50px;
+  border-radius: 40px;
+  background-image: linear-gradient(#f43478, #ff6456);
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+}
+#apply_btn5:hover {
+  background-color: rgba(233, 17, 99, 0.4);
+  box-shadow: 0px 15px 20px rgba(233, 17, 99, 0.4);
+  color: #fff;
+  transform: translateY(-7px);
+}
+#apply_btn6 {
+  position: relative;
+  overflow: visible;
+  left: 45%;
+  width: 100px;
+  height: 50px;
+  border-radius: 40px;
+  background-image: linear-gradient(#f43478, #ff6456);
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+}
+#apply_btn6:hover {
+  background-color: rgba(233, 17, 99, 0.4);
+  box-shadow: 0px 15px 20px rgba(233, 17, 99, 0.4);
+  color: #fff;
+  transform: translateY(-7px);
 }
 #apply_btn2,
 #apply_btn3 {
@@ -94,7 +155,7 @@
   right: 30px;
 }
 
-.InternBtn{
+.InternBtn {
   //text-align: center;
   // margin-left: 50%;
   //display: flex;

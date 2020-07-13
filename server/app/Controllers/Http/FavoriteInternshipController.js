@@ -16,8 +16,21 @@ class FavoriteInternshipController {
       message: "success",
     });
   }
+  async check({ response, auth, params }) {
+    const cand = await auth.getUser();
+    const ida = cand.id;
+    const ide = params.intern_id;
+    const fav = await FavoriteInternship.query()
+      .where("candidate_id", "=", ida)
+      .where("internship_id", "=", ide)
+      .fetch();
+
+    return response.status(200).json({
+      test: fav,
+    });
+  }
   async ofCandidate({ response, auth }) {
-    const aa = await Candidate.find(1);
+    const aa = await auth.getUser();
     const ide = aa.id;
     const fav = await FavoriteInternship.query()
       .where("candidate_id", "=", ide)
@@ -29,6 +42,25 @@ class FavoriteInternshipController {
     });
 
     // const apps = await auth.candidate.applications().all();
+  }
+  async delete({ response, session, params }) {
+    const fav = await FavoriteInternship.find(params.fav_id);
+
+    await fav.delete();
+    return response.send({ message: " has been deleted" });
+  }
+  async check({ response, auth, params }) {
+    const cand = await auth.getUser();
+    const ida = cand.id;
+    const ide = params.intern_id;
+    const fav = await FavoriteInternship.query()
+      .where("candidate_id", "=", ida)
+      .where("internship_id", "=", ide)
+      .fetch();
+
+    return response.status(200).json({
+      test: fav,
+    });
   }
 }
 

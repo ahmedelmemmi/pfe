@@ -39,7 +39,7 @@ class ApplicationController {
   //   }
 
   async check({ response, auth, params }) {
-    const cand = await Candidate.find(1);
+    const cand = await auth.getUser();
     const ida = cand.id;
     const ide = params.intern_id;
     const app = await Application.query()

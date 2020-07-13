@@ -49,3 +49,28 @@ export const checkApplication_f = (id, config) => {
       return err;
     });
 };
+
+export const deleteFavorite_f = (id, config) => {
+  return axios
+    .post(`/deleteFavorite2/${id}`, { name: "ala " }, config)
+    .then((response) => {
+      console.log(response);
+      return response;
+    })
+    .catch((err) => {
+      return err;
+    });
+};
+
+export const checkApplication3_f = (id, config) => {
+  return axios
+    .get(`checkFav2/${id}`, config)
+
+    .then((response) => {
+      console.log(response);
+      return response;
+    })
+    .catch((err) => {
+      return err;
+    });
+};
