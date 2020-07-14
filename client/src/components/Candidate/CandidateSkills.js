@@ -1,10 +1,13 @@
 import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
+import { skill_f } from "./CandidateFunctions";
+import Dialog from "../Dialog";
 
 export default class AddExperience extends Component {
   constructor() {
     super();
     this.state = {
+      error: false,
       skill: "",
       level: "",
     };
@@ -14,26 +17,38 @@ export default class AddExperience extends Component {
   onChange(e) {
     this.setState({ [e.target.name]: e.target.value });
   }
-  // onSubmit(e) {
-  //   e.preventDefault();
+  onSubmit(e) {
+    e.preventDefault();
 
-  //   const newEducation = {
-  //       skill: this.state.skill,
-  //       level: this.state.level,
-  //       degree: this.state.degree
-  //   };
+    const newSkill = {
+      skill: this.state.skill,
+      level: this.state.level,
+    };
 
-  //   EducationRegister_f(newEducation).then((res) =>
-
-  //       this.setState(() => ({
-  //         toDashboard: true,
-  //       }))
-
-  //   );
-  // }
+    skill_f(newSkill).then((res) =>
+      this.setState(() => ({
+        toDashboard: true,
+      }))
+    );
+  }
   render() {
     return (
       <div className="container">
+        <div className="">
+          <Dialog
+            isOpen={this.state.error}
+            onClose={(e) =>
+              this.setState((prevState) => {
+                return {
+                  ...prevState,
+                  error: false,
+                };
+              })
+            }
+          >
+            Email and password are incorrect! Please try again.
+          </Dialog>
+        </div>
         <div className="rowUpdate">
           <div className="col-md-9 mt-5 mx-auto">
             <form noValidate onSubmit={this.onSubmit}>
@@ -49,10 +64,6 @@ export default class AddExperience extends Component {
                     value={this.state.skill}
                     onChange={this.onChange}
                   >
-                    Technical Skills Computer Skills Analytical Skills Marketing
-                    Skills Presentation Skills Management Skills Project
-                    Management Skills Writing Skills Language Skills Design
-                    Skills Certifications
                     <option value="Technical Skills">Technical Skills</option>
                     <option
                       value="Computer Skills

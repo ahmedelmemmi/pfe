@@ -30,14 +30,14 @@ class CandidateProfile extends Component {
         console.log(res);
         this.setState((prevState) => ({
           ...prevState,
-          candidate_email: res.data.candidate_email,
-          candidate_name: res.data.candidate_name,
-          candidate_service: res.data.candidate_service,
-          candidate_gender: res.data.candidate_gender,
-          candidate_nb_experience: res.data.candidate_nb_experience,
-          candidate_adress: res.data.candidate_adress,
-          candidate_city: res.data.candidate_city,
-          candidate_phone: res.data.candidate_phone,
+          candidate_email: res.data.data.candidate_email,
+          candidate_name: res.data.data.candidate_name,
+          candidate_service: res.data.data.candidate_service,
+          candidate_gender: res.data.data.candidate_gender,
+          candidate_nb_experience: res.data.data.candidate_nb_experience,
+          candidate_adress: res.data.data.candidate_adress,
+          candidate_city: res.data.data.candidate_city,
+          candidate_phone: res.data.data.candidate_phone,
         }));
       })
       .catch((err) => {
@@ -87,7 +87,7 @@ class CandidateProfile extends Component {
           <div className=" jumbotron">
             <div className="col-sm-8 mx-auto">
               <img src={require("../../logos/user.png")} id="edit" alt="" />
-              <h1 className="text-left">{this.state.candidate_name} , {this.state.candidate_service}</h1>
+              <h1 className="text-left">ALA MAATOUK , web dev</h1>
             </div>
             <div className="col-sm-8 mx-auto">
               <h3 className="text-left2">Personal Details:</h3>

@@ -8,7 +8,7 @@ class SkillsSchema extends Schema {
     this.create("skills", (table) => {
       table.increments();
       table.string("skill_name");
-
+      table.string("skill_level");
       table.timestamps();
     });
   }

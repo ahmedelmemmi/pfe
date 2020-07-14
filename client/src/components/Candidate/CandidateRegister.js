@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import CandidateRegistration from "./CandidateRegistration";
 import CandidateLogin from "./CandidateLogin";
-import "../../styles/components/Candidate/_CandidateRegister.scss"
+import "../../styles/components/Candidate/_CandidateRegister.scss";
 class CandidateRegister extends Component {
   constructor(props) {
     super(props);

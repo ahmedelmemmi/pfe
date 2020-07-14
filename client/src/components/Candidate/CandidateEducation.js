@@ -1,13 +1,16 @@
 import React, { Component } from "react";
 // import { EducationRegister_f } from "./EducationFunctions";
 import { Redirect } from "react-router-dom";
-
+import { education_f } from "./CandidateFunctions";
+import Dialog from "../Dialog";
 export default class AddExperience extends Component {
   constructor() {
     super();
     this.state = {
+      error: false,
+
       university: "",
-      study_area: "",
+      area_study: "",
       degree: "",
     };
     // this.onChange = this.onChange.bind(this);
@@ -16,26 +19,39 @@ export default class AddExperience extends Component {
   onChange(e) {
     this.setState({ [e.target.name]: e.target.value });
   }
-  // onSubmit(e) {
-  //   e.preventDefault();
+  onSubmit(e) {
+    e.preventDefault();
 
-  //   const newEducation = {
-  //       university: this.state.university,
-  //       study_area: this.state.study_area,
-  //       degree: this.state.degree
-  //   };
+    const newEducation = {
+      university: this.state.university,
+      area_study: this.state.area_study,
+      degree: this.state.degree,
+    };
 
-  //   EducationRegister_f(newEducation).then((res) =>
-
-  //       this.setState(() => ({
-  //         toDashboard: true,
-  //       }))
-
-  //   );
-  // }
+    education_f(newEducation).then((res) =>
+      this.setState(() => ({
+        error: true,
+      }))
+    );
+  }
   render() {
     return (
       <div className="container">
+        <div className="">
+          <Dialog
+            isOpen={this.state.error}
+            onClose={(e) =>
+              this.setState((prevState) => {
+                return {
+                  ...prevState,
+                  error: false,
+                };
+              })
+            }
+          >
+            Email and password are incorrect! Please try again.
+          </Dialog>
+        </div>
         <div className=" row rowUpdate">
           <div className="col-md-9 mt-5 mx-auto">
             <form noValidate onSubmit={this.onSubmit}>
@@ -60,13 +76,13 @@ export default class AddExperience extends Component {
                   </select>
                 </div>
                 <div className="form-group">
-                  <label htmlFor="name">study_area</label>
+                  <label htmlFor="name">area_study</label>
                   <select
                     type="text"
                     className="form-control"
-                    name="study_area"
-                    placeholder="Enter study_area"
-                    value={this.state.study_area}
+                    name="area_study"
+                    placeholder="Enter area_study"
+                    value={this.state.area_study}
                     onChange={this.onChange}
                   >
                     <option value="IT">IT</option>

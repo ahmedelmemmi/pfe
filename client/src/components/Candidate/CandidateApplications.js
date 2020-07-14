@@ -3,7 +3,7 @@ import { Link, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { applications_f } from "../../store/actions/ApplicationsActions";
 import { filter_app } from "../../store/actions/Filter_appActions";
-import '../../styles/components/Candidate/_CandidateApplication.scss'
+import "../../styles/components/Candidate/_CandidateApplication.scss";
 class CandidateApplications extends Component {
   constructor(props) {
     super(props);
@@ -55,7 +55,9 @@ class CandidateApplications extends Component {
                   onChange={this.onChange}
                 >
                   <option value="In progress">In progress</option>
-                  <option value="Finished">Finished</option>
+                  <option value="Accepted">Accepted</option>
+
+                  <option value="Declined">Declined</option>
                 </select>
               </div>
               <div className="form-group">
@@ -94,7 +96,7 @@ class CandidateApplications extends Component {
               <p className="text">
                 {" "}
                 {app.internship.internship_title} at :{" "}
-                {app.internship.company.company_name} 
+                {app.internship.company.company_name}
               </p>
               <div>
                 <h3 className="d-flex justify-content-end">

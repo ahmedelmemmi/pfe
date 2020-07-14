@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import { NavLink, withRouter } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.css";
 import "../styles/components/Home/_Navbar.scss";
-import DropdownButton from 'react-bootstrap/DropdownButton';
-import Dropdown from 'react-bootstrap/Dropdown';
+import DropdownButton from "react-bootstrap/DropdownButton";
+import Dropdown from "react-bootstrap/Dropdown";
 
 class Navbar extends Component {
   logOut(e) {
@@ -14,16 +14,6 @@ class Navbar extends Component {
   render() {
     const candidateLinks = (
       <ul className="navbar-nav">
-        <li className="nav-item">
-          <NavLink
-            to="/candidate/invitations"
-            activeClassName="is-active"
-            className="nav-link"
-            exact
-          >
-            My invitations
-          </NavLink>
-        </li>
         <li className="nav-item">
           <NavLink
             to="/candidate/applications"
@@ -44,14 +34,19 @@ class Navbar extends Component {
             Internships
           </NavLink>
         </li>
-          <Dropdown>
-          <Dropdown.Toggle className="nav-link dropdown-toggle" id="navbarDropdown">
-          Account
+        <Dropdown>
+          <Dropdown.Toggle
+            className="nav-link dropdown-toggle"
+            id="navbarDropdown"
+          >
+            Account
           </Dropdown.Toggle>
           <Dropdown.Menu>
             <Dropdown.Item href="/candidate/profile">My Profile</Dropdown.Item>
             <Dropdown.Divider />
-            <Dropdown.Item onClick={this.logOut.bind(this)}>Logout</Dropdown.Item>
+            <Dropdown.Item onClick={this.logOut.bind(this)}>
+              Logout
+            </Dropdown.Item>
           </Dropdown.Menu>
         </Dropdown>
       </ul>
@@ -70,13 +65,18 @@ class Navbar extends Component {
           </NavLink>
         </li>
         <Dropdown>
-          <Dropdown.Toggle className="nav-link dropdown-toggle" id="navbarDropdown">
-          Account
+          <Dropdown.Toggle
+            className="nav-link dropdown-toggle"
+            id="navbarDropdown"
+          >
+            Account
           </Dropdown.Toggle>
           <Dropdown.Menu>
             <Dropdown.Item href="/company/profile">My Profile</Dropdown.Item>
             <Dropdown.Divider />
-            <Dropdown.Item onClick={this.logOut.bind(this)}>Logout</Dropdown.Item>
+            <Dropdown.Item onClick={this.logOut.bind(this)}>
+              Logout
+            </Dropdown.Item>
           </Dropdown.Menu>
         </Dropdown>
       </ul>

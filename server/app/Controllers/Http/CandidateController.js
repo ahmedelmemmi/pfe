@@ -3,6 +3,9 @@
 const Company = use("App/Models/Company");
 const Candidate = use("App/Models/Candidate");
 const Internship = use("App/Models/Internship");
+const Experience = use("App/Models/Experience");
+const Education = use("App/Models/Education");
+const Skill = use("App/Models/Skill");
 
 class CandidateController {
   async register({ request, response }) {
@@ -51,7 +54,15 @@ class CandidateController {
     return response.json({ token: token, email: true });
   }
   async show({ params, response }) {
+    const ide = params.id;
     const user = await Candidate.find(params.id);
+    const experience = await Experience.query()
+      .where("candidate_id", "=", ide)
+      .fetch();
+    const education = await Education.query()
+      .where("candidate_id", "=", ide)
+      .fetch();
+    const skill = await user.skills().fetch();
     const res = {
       candidate_email: user.candidate_email,
       candidate_name: user.candidate_name,
@@ -64,8 +75,14 @@ class CandidateController {
       candidate_city: user.candidate_city,
       candidate_phone: user.candidate_phone,
       candidate_photo: user.candidate_photo,
+      experience: experience,
+      education: education,
+      skill: skill,
     };
-    return response.json(res);
+    response.status(200).json({
+      message: "all_internships",
+      data: res,
+    });
   }
   async all({ response }) {
     const candidates = await Candidate.all();
@@ -99,6 +116,57 @@ class CandidateController {
     });
 
     // const apps = await auth.candidate.applications().all();
+  }
+  async addExperience({ request, response }) {
+    const {
+      ex_company,
+      ex_location,
+      ex_title,
+      ex_begin_date,
+      ex_end_date,
+    } = request.only([
+      "ex_company",
+      "ex_location",
+      "ex_title",
+      "ex_begin_date",
+      "ex_end_date",
+    ]);
+    const posted = await Experience.create({
+      ex_company,
+      ex_location,
+      ex_title,
+      ex_begin_date,
+      ex_end_date,
+    });
+    const cand = await auth.getUser();
+    await cand.experiences().save(posted);
+
+    return response.send({ message: "User has been created" });
+  }
+  async addEducation({ request, response }) {
+    const { university, area_study, degree } = request.only([
+      "university",
+      "area_study",
+      "degree",
+    ]);
+    const posted = await Education.create({
+      university,
+      area_study,
+      degree,
+    });
+    const cand = await auth.getUser();
+    await cand.educations().save(posted);
+    return response.send({ message: "User has been created" });
+  }
+  async addSkill({ request, response }) {
+    const { skill_name, skill_level } = request.only([
+      "skill_name",
+      "skill_level",
+    ]);
+    const posted = await Skill.create({ skill_name, skill_level });
+    const cand = await auth.getUser();
+    await cand.skills().save(posted);
+    return response.send({ message: "User has been created" });
   }
 }
 

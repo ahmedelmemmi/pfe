@@ -17,6 +17,10 @@
 const Route = use("Route");
 
 Route.group(() => {
+  Route.post("experience", "CandidateController.addExperience");
+  Route.post("education", "CandidateController.addEducation");
+  Route.post("skill", "CandidateController.addSkill");
+
   Route.post("login", "CandidateController.login");
   Route.post("register", "CandidateController.register");
   Route.get("candidate/:id", "CandidateController.show");
@@ -70,6 +74,8 @@ Route.post(
 Route.get("candidate/application/:intern_id", "ApplicationController.check");
 Route.get("favorite/ofCandidate", "FavoriteInternshipController.ofCandidate");
 Route.get("favorite/ofCompany", "FavoriteCandidateController.ofCompany");
+Route.get("myIntern", "CompanyController.myIntern");
+
 Route.post(
   "company/favoriteCandidate/:cand_id",
   "FavoriteCandidateController.create"
@@ -85,3 +91,4 @@ Route.get(
   "candidate/checkFav2/:intern_id",
   "FavoriteInternshipController.check"
 );
+Route.post("company/internships", "CompanyController.create");

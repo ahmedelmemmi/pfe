@@ -5,7 +5,7 @@ const Schema = use("Schema");
 
 class CandidateSkillSchema extends Schema {
   up() {
-    this.create("candidate_skills", (table) => {
+    this.create("candidate_skill", (table) => {
       table.integer("candidate_id").unsigned().index("candidate_id");
       table.integer("skill_id").unsigned().index("skill_id");
       table

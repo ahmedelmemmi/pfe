@@ -48,6 +48,7 @@ class CandidateSavedApplication extends Component {
                 error: false,
               };
             });
+            this.props.history.push("/candidate/candidatesPage");
           }}
         >
           {this.state.msg}
@@ -96,22 +97,22 @@ class CandidateSavedApplication extends Component {
                 </p>
                 <div className="row justify-content-end">
                   <div className="col-20">
-                    <Link
-                      to={"/internship/" + fav.internship.id}
-                      activeClassName="is-active"
-                      exact={true}
+                    <button
+                      id="apply_btn2"
+                      onClick={(e) => {
+                        deleteFavorite_f(fav.id);
+                        this.setState((prevState) => {
+                          return {
+                            ...prevState,
+                            error: true,
+                            msg: "Favorite internship has been removed ",
+                          };
+                        });
+                        console.log(this.state);
+                      }}
                     >
-                      <button
-                        id="apply_btn2"
-                        onClick={(e) => {
-                          deleteFavorite_f(fav.id);
-                          this.fonction();
-                          console.log(this.state);
-                        }}
-                      >
-                        Remove from favorites
-                      </button>
-                    </Link>
+                      Remove from favorites
+                    </button>
                   </div>
                 </div>
               </div>

@@ -1,9 +1,7 @@
 // import React from "react";
- import { MDBCol, MDBContainer, MDBRow, MDBFooter } from "mdbreact";
+import { MDBCol, MDBContainer, MDBRow, MDBFooter } from "mdbreact";
 // import "bootstrap/dist/css/bootstrap.css";
 // import "../styles/components/_Footer.scss";
-
-
 
 // const Footer = () => {
 //   return (
@@ -67,11 +65,12 @@ class Footer extends Component {
           <div className="usefulLinks">
             <div className="row">
               <div className="col-6">
-              <h5 className="title">Career.tn</h5>
-                    <p>
-                    Career.tn first objective is to provide users with advanced search tools such as filtering options
-                    whether in the search of candidates or in the search of companies.
-                    </p>
+                <h5 className="title">Career.tn</h5>
+                <p>
+                  Career.tn first objective is to provide users with advanced
+                  search tools such as filtering options whether in the search
+                  of candidates or in the search of companies.
+                </p>
               </div>
               <div className="col-3">
                 <h5 className="title">Useful Links</h5>
@@ -80,22 +79,23 @@ class Footer extends Component {
                     <a href="/">Home</a>
                   </li>
                   <li className="list-unstyled">
-                    <a href="http://localhost:3000/candidate/internshipsPage">Internships</a>
+                    <a href="http://localhost:3000/candidate/internshipsPage">
+                      Internships
+                    </a>
                   </li>
                   <li className="list-unstyled">
                     <a href="www.devagnos.com">Devagnos</a>
                   </li>
                   <li className="list-unstyled">
-                    <a href="http://localhost:3000/candidate/profile">Account</a>
+                    <a href="http://localhost:3000/candidate/profile">
+                      Account
+                    </a>
                   </li>
                 </ul>
-             </div>
-             </div>
-             </div>
+              </div>
+            </div>
+          </div>
         </div>
-        
-          
-           
       </div>
     );
   }

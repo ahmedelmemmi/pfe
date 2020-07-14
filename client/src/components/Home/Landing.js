@@ -10,20 +10,19 @@ class Landing extends Component {
     return (
       <div className="container-fluid">
         <div className="container">
-        <img id="path" src={require("../../logos/Path 1.svg")} alt="" />
-        <div className="row">
-          <Company />
-          <Candidate />
+          <img id="path" src={require("../../logos/Path 1.svg")} alt="" />
+          <div className="row">
+            <Company />
+            <Candidate />
+          </div>
+          <div className="row">
+            <Whyus />
+          </div>
+          {/* <div className="row"> */}
+          <AboutUs />
+          {/* </div> */}
         </div>
-        <div className="row">
-          <Whyus />
-        </div>
-        {/* <div className="row"> */}
-        <AboutUs />
-        {/* </div> */}
-        </div>
-        <Footer/>
-        
+        <Footer />
       </div>
     );
   }

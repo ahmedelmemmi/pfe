@@ -155,3 +155,28 @@ export const inviteFavorite_f = (id, config) => {
       return err;
     });
 };
+
+export const myIntern = (config) => {
+  return axios
+    .get("/myIntern", config)
+
+    .then((response) => {
+      console.log(response);
+      return response;
+    })
+    .catch((err) => {
+      return err;
+    });
+};
+export const deleteIntern = (id, config) => {
+  return axios
+    .post(`deleteFavorite/${id}`, { name: "ala " }, config)
+
+    .then((response) => {
+      console.log(response);
+      return response;
+    })
+    .catch((err) => {
+      return err;
+    });
+};

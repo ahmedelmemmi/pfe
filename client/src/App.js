@@ -15,7 +15,9 @@ import CompanyApplication from "./components/Company/CompanyApplication";
 import CandidatesPage from "./components/Company/CandidatesPage";
 import SeeCompany from "./components/Candidate/SeeCompany";
 import SeeCandidate from "./components/Company/SeeCandidate";
-import AddInternship from "./components/Internships/AddInternship"
+import AddInternship from "./components/Internships/AddInternship";
+import CompanyInternships from "./components/Company/CompanyInternships";
+import Invitations from "./components/Candidate/Invitations";
 class App extends Component {
   render() {
     return (
@@ -37,6 +39,7 @@ class App extends Component {
             path="/candidate/internshipsPage"
             component={InternshipsPage}
           />
+          <Route path="/candidate/invitations" component={Invitations} />
           <Route path="/candidate/company/:id" component={SeeCompany} />
           <Route path="/company/register" component={CompanyRegister} />
           <Route path="/company/profile" component={CompanyProfile} />
@@ -47,7 +50,8 @@ class App extends Component {
             component={CompanyApplication}
           />
           <Route path="/company/candidatesPage" component={CandidatesPage} />
-          <Route path="/company/internships" component={AddInternship} /> 
+          <Route path="/company/internships/add" component={AddInternship} />
+          <Route path="/company/internships" component={CompanyInternships} />
         </Switch>
       </Router>
     );

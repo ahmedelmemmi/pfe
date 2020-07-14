@@ -131,7 +131,7 @@ class CandidateInternships extends Component {
                     Accounting & Finance
                   </option>
                   <option value="Design & Creative">Design & Creative</option>
-                  <option value="Technology & IT">Technology & IT</option>
+                  <option value="IT">Technology & IT</option>
                   <option value="Legal">Legal</option>
 
                   <option value="Administrative & Office">
@@ -155,9 +155,10 @@ class CandidateInternships extends Component {
                 >
                   <option value=""></option>
 
-                  <option value="One month">One month</option>
-                  <option value="Three months">Three months</option>
-                  <option value="Six months">Six months</option>
+                  <option value="One month duration">One month duration</option>
+                  <option value="Six months duration">
+                    Six months duration
+                  </option>
                 </select>
               </div>
               <div className="row">
